@@ -1,5 +1,9 @@
 themes/bootstrap_barrio/subtheme/gulp/node_modules
 .idea
+.htaccess
+robots.txt
+/sites/default/files
+/sites/default/settings.php
 
 # Windows image file caches
 Thumbs.db
