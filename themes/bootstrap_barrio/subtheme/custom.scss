@@ -1,5 +1,38 @@
 $primaryColor: #e94f2a !default;
 
-body {
-  //background: red !important;
+a {
+    outline: none !important;
 }
+
+#navbar-main {
+    background-color: transparent;
+    .navbar-brand {
+        .site-branding__slogan {
+            color: black;
+        }
+    }
+    #CollapsingNavbar {
+        float: right;
+        overflow: hidden;
+        padding-top: 31px;
+        .menu--main {
+            display: inline-block;
+            padding-right: 20px;
+            text-align: right;
+        }
+        .search-block-form {
+            float: right;
+            margin-top: -5px;
+            h2 {
+                display: none;
+            }
+            form.search-form {
+                overflow: hidden;
+                .js-form-item {
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
