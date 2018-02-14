@@ -1,0 +1,49 @@
+@import "../bootstrap/scss/_mixins";
+@import "../bootstrap/scss/_variables";
+
+// Adaptability marker:
+//----------------------------------------
+@mixin adaptive_marker($color, $txt) {
+    content: $txt;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: $color;
+    z-index: 999999999;
+    text-align: center;
+}
+body {
+    &::after {
+        //Width 0 - 374.99
+        @media screen and (max-width: 374.99px) {
+            @include adaptive_marker(red, "xss");
+        }
+
+        //Width 375 - 575.99
+        @media screen and (min-width: 375px) and (max-width: 575.99px) {
+            @include adaptive_marker(blue, "xs");
+        }
+
+        //Width 576 - 767.99
+        @include media-breakpoint-between(sm, md) {
+            @include adaptive_marker(yellow, "sm");
+        }
+
+        //Width 768 - 991.99
+        @include media-breakpoint-between(md, lg) {
+            @include adaptive_marker(greenyellow, "md");
+        }
+
+        //Width 992 - 1199.99
+        @include media-breakpoint-between(lg, xl) {
+            @include adaptive_marker(violet, "lg");
+        }
+
+        //Width 1200 - infinity
+        @include media-breakpoint-only(xl) {
+            @include adaptive_marker(silver, "xl");
+        }
+    }
+}

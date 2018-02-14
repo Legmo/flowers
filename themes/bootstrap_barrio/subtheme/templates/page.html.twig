@@ -68,86 +68,111 @@
  * @see html.html.twig
  */
 #}
-<div class=" {{ container }}  ">
+<div class="container-fluid">
     {% block head %}
-        {% if page.secondary_menu or page.page.top_header or page.top_header_form %}
-            <nav{{ navbar_top_attributes }}>
-                <div class="section clearfix">
-                    <div class="navbar-nav">
-                        {{ page.secondary_menu }}
+    <div class="row">
+        <div class="col-12">
+            <div id="header">
+                <div class="main-content">
+                    <div class="header-top">
                         {{ page.top_header }}
                     </div>
-                    {% if page.top_header_form %}
-                        <div class="form-inline navbar-form pull-right">
-                            {{ page.top_header_form }}
-                        </div>
-                    {% endif %}
-                </div>
-            </nav>
-        {% endif %}
-        <nav{{ navbar_attributes }}>
-            <div class="section clearfix">
-                <div class="navbar-brand">
-                    {{ page.header }}
-                </div>
-                <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#CollapsingNavbar">
-                    &#9776;
-                </button>
-                <div class="collapse navbar-toggleable-xs navbar-nav" id="CollapsingNavbar">
-                    {{ page.primary_menu }}
-                </div>
-                {% if page.header_form %}
-                    <div class="form-inline navbar-form pull-right">
-                        {{ page.header_form }}
+                    <div class="header-main">
+                        {{ page.header }}
                     </div>
-                {% endif %}
+                    <nav{{ navbar_attributes }}>
+                        <div class="section clearfix">
+                            <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#CollapsingNavbar">
+                                &#9776;
+                            </button>
+                            <div class="collapse navbar-toggleable-xs navbar-nav" id="CollapsingNavbar">
+                                {{ page.primary_menu }}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             </div>
-        </nav>
+        </div>
+    </div>
     {% endblock %}
 
     {% block content %}
-        <div id="main" class="">
-            <div class="row clearfix">
-                {{ page.breadcrumb }}
-                <main{{ content_attributes }}>
-                    <section class="section">
-                        <a id="main-content" tabindex="-1"></a>
-                        {{ page.content }}
-                    </section>
-                </main>
-                {% if page.sidebar_first %}
-                    <div{{ sidebar_first_attributes }}>
-                        <aside class="section" role="complementary">
-                            {{ page.sidebar_first }}
-                        </aside>
+        <div class="row">
+            <div class="col-12">
+                <div id="main">
+                    <div class="main-content">
+                        <div class="row clearfix">
+                            {{ page.breadcrumb }}
+                            <main{{ content_attributes }}>
+                                <section class="section">
+                                    <a id="main-content" tabindex="-1"></a>
+                                    {{ page.content }}
+                                </section>
+                            </main>
+                            {% if page.sidebar_first %}
+                                <div{{ sidebar_first_attributes }}>
+                                    <aside class="section" role="complementary">
+                                        {{ page.sidebar_first }}
+                                    </aside>
+                                </div>
+                            {% endif %}
+                            {% if page.sidebar_second %}
+                                <div{{ sidebar_second_attributes }}>
+                                    <aside class="section" role="complementary">
+                                        {{ page.sidebar_second }}
+                                    </aside>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
-                {% endif %}
-                {% if page.sidebar_second %}
-                    <div{{ sidebar_second_attributes }}>
-                        <aside class="section" role="complementary">
-                            {{ page.sidebar_second }}
-                        </aside>
-                    </div>
-                {% endif %}
+                </div>
             </div>
         </div>
     {% endblock %}
 
     {% block footer %}
-        <div class="">
-            {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
-                <div class="site-footer__top clearfix">
-                    {{ page.footer_first }}
-                    {{ page.footer_second }}
-                    {{ page.footer_third }}
-                    {{ page.footer_fourth }}
+        <div class="row">
+            <div class="col-12">
+                <div id="footer">
+                    <div class="main-content">
+                        {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+                            <div class="site-footer__top clearfix">
+                                {{ page.footer_first }}
+                                {{ page.footer_second }}
+                                {{ page.footer_third }}
+                                {{ page.footer_fourth }}
+                            </div>
+                        {% endif %}
+                        {% if page.footer_fifth %}
+                            <div class="site-footer__bottom">
+                                {{ page.footer_fifth }}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
-            {% endif %}
-            {% if page.footer_fifth %}
-                <div class="site-footer__bottom">
-                    {{ page.footer_fifth }}
-                </div>
-            {% endif %}
+            </div>
         </div>
     {% endblock %}
+</div>
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="modalMapHeaderLabel" class="modal fade" id="modalMapHeader" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalMapHeaderLabel">Схема проезда</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <p>Здесь будет карта</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

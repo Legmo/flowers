@@ -1,0 +1,181 @@
+@import "mixins";
+@import "variables";
+
+a {
+    outline: none !important;
+}
+
+#header,
+#main,
+#footer .main-content {
+    max-width: 1200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header {
+    padding-top: 30px;
+    .header-top {
+        .site-name-slogan {}
+        #block-header-contacts {
+            text-align: right;
+            p {
+                margin: 0;
+                padding: 0;
+                &.phone {
+                    font-size: 26px;
+                    font-weight: bold;
+                    line-height: 1;
+                    span {
+                        font-size: 18px;
+                        font-weight: normal;
+                        padding-right: 5px;
+                        color: $c_gray;
+                    }
+                }
+            }
+            .address {
+                margin: 0;
+                padding: 0;
+                font-size: 13px;
+                color: $c_silver;
+                text-decoration: none;
+                border-bottom: dashed 1px;
+                cursor: pointer;
+                transition: $transition;
+                &:hover {
+                    color: $c_black;
+                    transition: $transition;
+                }
+            }
+        }
+    }
+    #navbar-main {
+        background-color: transparent;
+        padding: 0;
+        #CollapsingNavbar {
+            overflow: hidden;
+            padding-top: 30px;
+            width: 100%;
+            nav.menu--main {
+                display: inline-block;
+                padding-right: 20px;
+                text-align: right;
+                ul li {
+                    display: inline-block;
+                    a {
+                    transition: $transition;
+                    &:hover {
+                        transition: $transition;
+                    }
+                    &.is-active {
+                        color: $c_black;
+                        cursor: default;
+                    }
+
+                }
+                }
+            }
+            .search-block-form {
+                float: right;
+                margin-top: -5px;
+                h2 {
+                    display: none;
+                }
+                form.search-form {
+                    overflow: hidden;
+                    .js-form-item {
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+}
+#main {}
+#footer {
+    background-color: $c_silver;
+    margin-top: 30px;
+    padding: 10px 0;
+}
+
+
+.product-card {
+    text-align: center;
+    margin-bottom: 50px;
+    height: 270px;
+    overflow: hidden;
+    transition: $transition;
+    .product-price {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        .rouble {
+            font-weight: normal;
+            color: $c_silver;
+            font-size: 18px;
+        }
+    }
+    .product-title {}
+    a.btn {
+        border-radius: 4px;
+        color: white;
+        &.more-info {
+            background-color: rgba(128,128,128,0.7);
+            transition: $transition;
+            &:hover {
+                transition: $transition;
+                background-color: rgba(128,128,128,0.9);
+            }
+        }
+        &.buy {
+            background-color: rgba(148,209,85,1);
+            transition: $transition;
+            &:hover {
+                transition: $transition;
+                background-color: rgba(148,209,85,1);
+                background-color: #48D13D;
+            }
+        }
+    }
+
+    &.open {
+        height: 400px;
+        transition: $transition;
+    }
+}
+
+body.path-frontpage {
+    #block-bootstrap-barrio-subtheme-interdok-text-top-front {
+        margin-bottom: 30px;
+        .info-left {
+            padding: 0 30px 0 0;
+            h1 {
+                padding-bottom: 20px;
+            }
+        }
+        .slider-front {
+            h3 {
+                padding: 15px 0 10px;
+                text-align: center;
+            }
+            .tmp {
+                background: url(../img/flowers_tmp.jpg) no-repeat center;
+                background-size: contain;
+                min-height: 250px;
+            }
+            p {
+                padding-top: 10px;
+                text-align: center;
+            }
+        }
+    }
+    #block-bootstrap-barrio-subtheme-interdok-front-new {
+        & > h2 {
+            text-align: center;
+        }
+    }
+}
+

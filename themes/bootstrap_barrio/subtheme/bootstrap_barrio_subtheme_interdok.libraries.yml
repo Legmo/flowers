@@ -5,5 +5,11 @@ global-styling:
       css/custom.css: {}
       css/bootstrap.css: {}
   js:
+    js/main.js: {}
     component:
       bootstrap/dist/js/bootstrap.min.js: {}
+
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
