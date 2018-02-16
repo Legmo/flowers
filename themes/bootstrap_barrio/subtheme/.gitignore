@@ -1,9 +1,0 @@
-gulp/node_modules
-.idea
-
-############
-## Windows
-############
-
-# Windows image file caches
-Thumbs.db

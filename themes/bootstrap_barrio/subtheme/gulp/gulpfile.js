@@ -25,11 +25,12 @@ gulp.task('watch', function () {
 });
 
 // Путь от этого файла к публичной дирктории
-var bootstrap = '../bootstrap/scss/bootstrap.scss'; // Base url
+//var bootstrap = '../bootstrap/scss/bootstrap.scss'; // Base url
 var customCss = '../scss/custom.scss'; // Base url
 
 gulp.task('scss', function () {
-    return gulp.src([bootstrap, customCss])
+//    return gulp.src([bootstrap, customCss])
+    return gulp.src([customCss])
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({outputStyle: 'compressed'}))
         // .pipe(minifyCss())

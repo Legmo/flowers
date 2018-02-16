@@ -1,0 +1,15 @@
+global-styling:
+  version: VERSION
+  css:
+    component:
+      css/custom.css: {}
+
+  js:
+    js/global.js: {}
+#    component:
+#      bootstrap/js/bootstrap.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
