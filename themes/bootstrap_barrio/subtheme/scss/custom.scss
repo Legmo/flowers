@@ -242,6 +242,30 @@ footer .main-content {
         }
     }
 
+
+
+    @media screen and (max-width: 575.99px) {
+        top: -280px;
+    }
+    @include media-breakpoint-only (sm) {
+        top: -280px;
+        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li {
+            &:nth-child(4) {
+                margin-right: 0;
+            }
+            a {
+                font-size: 15px;
+            }
+        }
+    }
+    @include media-breakpoint-only (md) {
+        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li {
+            &:nth-child(4) {
+                margin-right: 0;
+            }
+        }
+    }
+
 }
 footer {
     background-color: $c_pink-light;
@@ -605,7 +629,7 @@ body.node--type-composition {
         }
     }
 }
-//Композиция
+//Цветы
 body.node--type-product-flowers {
     #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
         color: white;
@@ -640,6 +664,12 @@ body.page-node-2 {
 }
 //О нас
 body.page-node-1 {
+    .portret_Lena {
+        background: url('../img/portret_Lena.jpg') no-repeat center;
+        background-size: contain;
+        width: auto;
+        height: 300px;
+    }
     .field--name-body {
         .address {
             margin: 0;

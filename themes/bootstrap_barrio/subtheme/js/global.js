@@ -15,13 +15,12 @@
         var atrSrc = '';
 
         if (($(slide).length) > 1) {
-            console.log('1');
             $('.slider.thumbs-container').removeClass('hide');
             $('.slider.thumbs-container .slide-thumbs:first-of-type').addClass('active');
             $(slideThumbs).on('click', function(event) {
                 atrSrc = $(this).find('img').attr('src');
                 $(slideThumbs).removeClass('active')
-                $(this).addClass('active').attr('src');
+                $(this).addClass('active');
                 $(slideFirst).find('img').attr('src', atrSrc);
             });
         }
