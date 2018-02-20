@@ -3,9 +3,11 @@ global-styling:
   css:
     component:
       css/custom.css: {}
+      css/swiper.css: {}
 
   js:
     js/global.js: {}
+    js/swiper.min.js: {}
 #    component:
 #      bootstrap/js/bootstrap.js: {}
   dependencies:

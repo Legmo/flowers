@@ -48,18 +48,53 @@
     {{ page }}
     {{ page_bottom }}
 
-    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog" tabindex="-1">
+    <div aria-hidden="true" aria-labelledby="mapModalLabel" class="modal fade" id="mapModal" role="dialog" tabindex="-1">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Схема проезда</h5>
+            <h5 class="modal-title" id="mapModalLabel">Схема проезда</h5>
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Иркутск, ул. 2-я Железнодорожная, 6 (<a href="http://go.2gis.com/o09xa" title="Открыть электронную карту" target="_blank">карта 2GIS</a>)</p>
+            <div id="contact-map">&nbsp;</div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal" type="button">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="paymentModalLabel" class="modal fade" id="paymentModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paymentModalLabel">Покупка</h5>
             <button aria-label="Close" class="close" data-dismiss="modal" type="button">
               <span aria-hidden="true">×</span>
             </button>
           </div>
 
           <div class="modal-body">
-            <p>Здесь будет схема проезда.</p>
+            <p>Для совершения покупки позвоните по телефону 8924-834-8419</p>
+            <p>Вам потребуется:</p>
+            <ul>
+              <li>номер товара;</li>
+              <li>ваше имя и телефон;</li>
+            </ul>
+            <br>
+            <p>Оплата:</p>
+            <ul>
+              <li>наличными курьеру;</li>
+              <li>карта № 4276 1800 1168 0575(Сбербанк);</li>
+              <li>мобильный банк Сбербанка ‎8924-839-6090;</li>
+              <li>наличными в магазине.</li>
+            </ul>
+            <p>Нужна доставка? Сообщите число, время, адрес, имя получателя</p>
+            <p>Дополнительные услуги: упаковка, отрытка, подарок</p>
           </div>
 
           <div class="modal-footer">
