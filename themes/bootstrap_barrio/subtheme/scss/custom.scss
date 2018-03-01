@@ -46,10 +46,29 @@ a.btn.payment {
     position: relative;
     text-align: center;
     margin-bottom: 50px;
-    height: 285px;
+    padding-top: 20px;
+    height: 450px;
     transition: $transition;
     border: 2px solid transparent;
     border-bottom: none;
+    .product-price {
+        margin: 10px auto;
+        font-size: 20px;
+        font-weight: bold;
+        color: $c_pink-dark;
+    }
+    .product-title {
+        margin-bottom: 20px;
+    }
+    .coverlink {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        //background-color: rgba(55,55,55,0.3);
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
     .bottom-inf {
         overflow: hidden;
         background-color: white;
@@ -58,19 +77,19 @@ a.btn.payment {
         width: calc(100% + (2px*2));
         left: -2px;
         bottom: 0;
+        z-index: 0;
         transition: $transition;
-        z-index: 2;
         border: 2px solid transparent;
         border-top: none;
     }
-    .product-price {
-        margin-top: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        color: $c_pink-dark;
-    }
-    .product-title {
-        margin-bottom: 20px;
+    .coverlink-bottom {
+        display: block;
+        position: absolute;
+        z-index: 4;
+        //background-color: rgba(11,55,255,0.3);
+        width: 100%;
+        height: 100%;
+        top: 0;
     }
     a.btn {
         padding: 5px 15px !important;
@@ -89,6 +108,10 @@ a.btn.payment {
                 background-color: rgba(128,128,128,0.9);
             }
         }
+        &.payment {
+            position: relative;
+            z-index: 5;
+        }
     }
 
     &.open {
@@ -96,12 +119,17 @@ a.btn.payment {
         border-bottom: 0;
         .bottom-inf {
             left: -2px;
-            height: 110px;
-            bottom: -110px;
+            height: 80px;
+            bottom: -80px;
             transition: $transition;
 
+            z-index: 3;
             border-color: silver;
             border-top: 0;
+            &:hover a.btn.more-info {
+                transition: $transition;
+                background-color: rgba(128,128,128,0.9);
+            }
         }
     }
 }
@@ -185,6 +213,8 @@ footer .main-content {
     .navigation-line {
         background-color: $c_pink-dark;
         margin-top: 15px;
+        position: relative;
+        z-index: 5;
         #navbar-main {
             padding: 0;
             width: 100%;
@@ -217,7 +247,7 @@ footer .main-content {
                                 cursor: default;
                             }
                         }
-                        &:nth-child(4) {
+                        &:nth-last-of-type(3) {
                             margin-right: 60px;
                         }
 
@@ -394,6 +424,7 @@ body.path-frontpage {
     .block-views-blockfront-new-block-1 {
         clear: both;
         .view-footer {
+            padding-top: 50px;
             text-align: center;
         }
     }
