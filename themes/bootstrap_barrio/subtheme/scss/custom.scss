@@ -352,15 +352,15 @@ footer {
                     margin-bottom: 20px;
                     display: flex;
                     flex-wrap: wrap;
+                    .fieldset-wrapper {
+                        width: 100%;
+                    }
                     label {
                         color: $c_black;
                         display: inline-block;
                         width: 27%;
                         text-align: right;
                         padding-left: 10px;
-                        .webform-element-help {
-
-                        }
                         &.option {
                             width: auto;
                             text-align: left;
@@ -401,10 +401,10 @@ footer {
                     }
                 }
                 .js-form-type-checkbox {
-                    .form-check-label {
+                    label.form-check-label {
                         width: calc(27% + 18px);
                         text-align: right;
-                        label {
+                        label.option {
                             padding-right: 20px;
                         }
                     }
@@ -417,7 +417,16 @@ footer {
                     }
                 }
                 .js-webform-radios {
-
+                    label.form-check-label {
+                        width: calc(27% + 18px);
+                        input {
+                            float: right;
+                            position: relative;
+                        }
+                        label.option {
+                            padding-right: 20px;
+                        }
+                    }
                 }
             }
         }
