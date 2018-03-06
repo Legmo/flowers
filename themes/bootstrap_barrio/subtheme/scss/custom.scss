@@ -332,7 +332,86 @@ footer {
     width: 100%;
     height: 500px;
 }
+#paymentModal {
+    .modal-dialog {
+        //width: 700px;
+        max-width: 700px;
+        .modal-body .content {
+            p,
+            a,
+            label,
+            span {
 
+                color: $c_black;
+            }
+            form {
+                legend span {
+                    color: $c_black;
+                }
+                & > fieldset {
+                    margin-bottom: 10px;
+                    display: flex;
+                    label {
+                        color: $c_black;
+                        display: inline-block;
+                        width: 27%;
+                        text-align: right;
+                        padding-left: 10px;
+                        .webform-element-help {
+                            
+                        }
+                        &.option {
+                            width: auto;
+                            text-align: left;
+                        }
+                    }
+                    input.form-text,
+                    input.form-tel,
+                    input.form-number,
+                    .form-type-textfield,
+                    .form-textarea-wrapper,
+                    #edit-order-date-time {
+                        display: inline-block;
+                        width: 70%;
+                    }
+                    .form-item-order-date-time-date,
+                    .form-item-order-date-time-time {
+                        width: 40%;
+                        label {
+                            width: 100px;
+                            position: relative;
+                            clip-path: inherit;
+                            height: 20px;
+                            text-align: left;
+                        }
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+                .js-form-type-checkbox {
+                    .form-check-label {
+                        width: calc(27% + 18px);
+                        text-align: right;
+                        label {
+                            padding-right: 20px;
+                        }
+                    }
+                    input.form-checkbox {
+                        float: right;
+                        position: relative;
+                    }
+                    .description {
+                        padding-left: 10px;
+                    }
+                }
+                .js-webform-radios {
+
+                }
+            }
+        }
+    }
+}
 //Страницы
 body.path-frontpage {
     #header .site-logo {
