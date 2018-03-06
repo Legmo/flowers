@@ -417,23 +417,27 @@ footer {
                     }
                 }
                 .js-webform-radios {
-                    label.form-check-label {
-                        width: calc(27% + 18px);
-                        height: auto;
-                        position: relative;
-                        input {
-                            float: right;
-                            top: 2px;
-                            right: 0;
+                    .js-form-item {
+                        margin-bottom: 10px;
+                        label.form-check-label {
+                            width: calc(27% + 18px);
+                            height: auto;
+                            position: relative;
+                            input {
+                                float: right;
+                                top: 2px;
+                                right: 0;
+                            }
+                            label.option {
+                                padding: 0 20px 0 0;
+                                margin: 0;
+                                line-height: 1.2;
+                            }
                         }
-                        label.option {
-                            padding: 0 20px 0 0;
-                            margin: 0;
+                        .description {
+                            display: inline;
+                            padding-left: 10px;
                         }
-                    }
-                    .description {
-                        display: inline;
-                        padding-left: 10px;
                     }
                 }
             }
