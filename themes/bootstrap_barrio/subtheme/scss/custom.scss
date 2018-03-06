@@ -345,8 +345,12 @@ footer {
                 color: $c_black;
             }
             form {
+                padding-bottom: 20px;
                 legend span {
-                    color: $c_black;
+                    padding-top: 20px;
+                    font-size: 17px;
+                    font-weight: bold;
+                    color: $c_gray;
                 }
                 & > fieldset {
                     margin-bottom: 20px;
@@ -450,6 +454,9 @@ footer {
                             padding-left: 10px;
                         }
                     }
+                }
+                button.webform-button--submit {
+                    margin-left: 35%;
                 }
             }
         }
