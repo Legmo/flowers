@@ -358,7 +358,7 @@ footer {
                     label {
                         color: $c_black;
                         display: inline-block;
-                        width: 27%;
+                        width: 35%;
                         text-align: right;
                         padding-left: 10px;
                         &.option {
@@ -373,12 +373,12 @@ footer {
                     .form-textarea-wrapper,
                     #edit-order-date-time {
                         display: inline-block;
-                        width: 70%;
+                        width: 63%;
                     }
                     .description {
                         display: block;
                         width: 100%;
-                        padding: 5px 20px 0 27%;
+                        padding: 5px 20px 0 35%;
                         text-align: right;
                     }
                     .js-form-item-order-packaging .description,
@@ -410,7 +410,7 @@ footer {
                 }
                 .js-form-type-checkbox {
                     label.form-check-label {
-                        width: calc(27% + 18px);
+                        width: calc(35% + 18px);
                         text-align: right;
                         label {
                             padding-right: 20px;
@@ -428,7 +428,7 @@ footer {
                     .js-form-item {
                         margin-bottom: 10px;
                         label.form-check-label {
-                            width: calc(27% + 18px);
+                            width: calc(35% + 18px);
                             height: auto;
                             position: relative;
                             line-height: 0;
