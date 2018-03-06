@@ -362,12 +362,22 @@ footer {
                     label {
                         color: $c_black;
                         display: inline-block;
+                        position: relative;
                         width: 35%;
                         text-align: right;
-                        padding-left: 10px;
+                        padding-right: 20px;
                         &.option {
                             width: auto;
                             text-align: left;
+                        }
+                        &.js-form-required::after {
+                            content: "*";
+                            position: absolute;
+                            top: 0;
+                            right: 10px;
+                            width: 15px;
+                            height: 15px;
+                            display: block;
                         }
                     }
                     input.form-text,
@@ -378,6 +388,11 @@ footer {
                     #edit-order-date-time {
                         display: inline-block;
                         width: 63%;
+                    }
+                    #edit-order-delivery--wrapper {
+                        legend {
+                            display: none;
+                        }
                     }
                     .description {
                         display: block;
@@ -426,6 +441,9 @@ footer {
                     }
                     .description {
                         padding-left: 10px;
+                        &#edit-order-delivery-main--description {
+                            display: inline-block;
+                        }
                     }
                 }
                 .js-webform-radios {
