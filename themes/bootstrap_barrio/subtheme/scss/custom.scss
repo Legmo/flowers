@@ -375,20 +375,6 @@ footer {
                         display: inline-block;
                         width: 70%;
                     }
-                    .form-item-order-date-time-date,
-                    .form-item-order-date-time-time {
-                        width: 40%;
-                        label {
-                            width: 100px;
-                            position: relative;
-                            clip-path: inherit;
-                            height: 20px;
-                            text-align: left;
-                        }
-                        input {
-                            width: 100%;
-                        }
-                    }
                     .description {
                         display: block;
                         width: 100%;
@@ -398,6 +384,28 @@ footer {
                     .js-form-item-order-packaging .description,
                     .form-item-order-card .description {
                         display: inline;
+                    }
+                    &.form-type-datetime {
+                        label {
+                            padding-top: 26px;
+                        }
+                        .form-item-order-date-time-date,
+                        .form-item-order-date-time-time {
+                            width: 40%;
+                            label {
+                                width: 100px;
+                                position: relative;
+                                clip-path: inherit;
+                                height: 20px;
+                                text-align: left;
+                            }
+                            input {
+                                width: 100%;
+                            }
+                        }
+                        .description {
+                            text-align: left;
+                        }
                     }
                 }
                 .js-form-type-checkbox {
@@ -423,6 +431,7 @@ footer {
                             width: calc(27% + 18px);
                             height: auto;
                             position: relative;
+                            line-height: 0;
                             input {
                                 float: right;
                                 top: 2px;
@@ -432,6 +441,7 @@ footer {
                                 padding: 0 20px 0 0;
                                 margin: 0;
                                 line-height: 1.2;
+                                text-align: right;
                             }
                         }
                         .description {
