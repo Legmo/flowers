@@ -394,6 +394,18 @@ footer {
                             display: none;
                         }
                     }
+                    .description {
+                        display: block;
+                        width: 100%;
+                        padding: 5px 20px 0 35%;
+                        text-align: right;
+                        a {
+                            text-decoration: underline;
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                    }
                     .js-form-item-order-packaging .description,
                     .form-item-order-card .description {
                         display: inline;
@@ -418,18 +430,6 @@ footer {
                         }
                         .description {
                             text-align: left;
-                        }
-                    }
-                }
-                .description {
-                    display: block;
-                    width: 100%;
-                    padding: 5px 20px 0 35%;
-                    text-align: right;
-                    a {
-                        text-decoration: underline;
-                        &:hover {
-                            text-decoration: none;
                         }
                     }
                 }
