@@ -386,7 +386,7 @@ footer {
                         display: inline;
                     }
                     &.form-type-datetime {
-                        label {
+                        & > label {
                             padding-top: 26px;
                         }
                         .form-item-order-date-time-date,
@@ -436,6 +436,7 @@ footer {
                                 float: right;
                                 top: 2px;
                                 right: 0;
+                                margin: 0;
                             }
                             label.option {
                                 padding: 0 20px 0 0;
