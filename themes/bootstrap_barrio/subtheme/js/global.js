@@ -50,6 +50,27 @@
             function(){$(this).addClass('open');},
             function(){$(this).removeClass('open');}
         );
+
+        //Webform - add product name & price to pop-up window
+
+        $('body.node--type-product-bouquet a.btn.payment').click(function(event){ //todo - разные типы нод
+            var productName = $(event.target).closest('#content .region-content').find('h1.page-title').text();
+            var productPrice = $(event.target).closest('#content .region-content').find('.field--name-field-price-bouquet').text();
+            console.log(productName + " - " + productPrice);
+            $('#paymentModal form #edit-product-name').val(productName);
+        });
+        $('.view-front-actions a.btn.payment').click(function(event){
+            var productName = $(event.target).closest('.col-12 ').find('.title').text();//todo - .col-12
+            var productPrice = $(event.target).closest('.col-12 ').find('.price').text();//todo - .col-12
+            console.log(productName + " - " + productPrice);
+            $('#paymentModal form #edit-product-name').val(productName);
+        });
+        $('.product-card a.btn.payment').click(function(event){
+            var productName = $(event.target).closest('.product-card').find('.product-title').text();
+            var productPrice = $(event.target).closest('.product-card').find('.product-price').text();
+            console.log(productName + " - " + productPrice);
+            $('#paymentModal form #edit-product-name').val(productName);
+        })
     }
   };
 
