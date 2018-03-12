@@ -563,6 +563,22 @@ footer {
                             cursor: pointer;
                         }
                     }
+                    .js-form-item {
+                        overflow: hidden;
+                        & > label {
+                            float: left;
+                        }
+                        &:nth-child(3) {
+                            input {
+                                margin-top: 13px; //todo - автоматически по центру
+                            }
+                            .description {
+                                display: inline-block;
+                                padding-top: 15px;
+                                width: auto;
+                            }
+                        }
+                    }
                 }
                 button.webform-button--submit {
                     margin-left: 35%;
