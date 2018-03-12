@@ -51,16 +51,39 @@
             function(){$(this).removeClass('open');}
         );
 
-        //Webform - add product name & price to pop-up window
 
+        //Webform - add placeholders
+        $('#paymentModal form #edit-order-date-time-date').attr( 'placeholder', 'Дата');
+        $('#paymentModal form #edit-order-date-time-time').attr( 'placeholder', 'Время');
+
+        //Webform - add accordion
+        //$("#edit-order-payment-method--wrapper .fieldset-wrapper").prepend($('<div id="accordion"><div class="card"><div class="card-header" id="headingOne"><h5 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Методы оплаты</button></h5></div><div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body">'));
+        //$("#edit-order-payment-method--wrapper .fieldset-wrapper").append($('</div></div></div></div>'));
+        var paymentContent = $('#edit-order-payment-method--wrapper .fieldset-wrapper')
+        $(paymentContent).once('Hide').hide();
+
+            $('#edit-order-payment-method--wrapper legend').once('ShowHide').click(function(){
+                if ($(paymentContent).css('display') == 'none') {
+                    //console.log($(paymentContent).css('display'));
+                    //console.log('show');
+                    $(paymentContent).show();
+                }
+                else {
+                    //console.log($(paymentContent).css('display'));
+                    //console.log('hide');
+                    $(paymentContent).hide();
+                }
+            });
+
+        //Webform - add product name & price to pop-up window
         $('body.node--type-product-bouquet a.btn.payment').click(function(event){ //todo - разные типы нод
             var productName = $(event.target).closest('#content .region-content').find('h1.page-title').text();
             var productPrice = $(event.target).closest('#content .region-content').find('.field--name-field-price-bouquet').text();
             //console.log(productName + " - " + productPrice);
             $('#paymentModal form #edit-product-name').val(productName);
             $('#paymentModal form #edit-product-price').val(productPrice);
-            $('#paymentModal h3.windows-title .product-name').text(productName);
-            $('#paymentModal h3.windows-title .product-price').text(productPrice);
+            $('#paymentModal h5.modal-title .product-name').text(productName);
+            $('#paymentModal h5.modal-title .product-price').text(productPrice);
         });
         $('.view-front-actions a.btn.payment').click(function(event){
             var productName = $(event.target).closest('.col-12 ').find('.title').text();//todo - .col-12
@@ -68,8 +91,8 @@
             //console.log(productName + " - " + productPrice);
             $('#paymentModal form #edit-product-name').val(productName);
             $('#paymentModal form #edit-product-price').val(productPrice);
-            $('#paymentModal h3.windows-title .product-name').text(productName);
-            $('#paymentModal h3.windows-title .product-price').text(productPrice);
+            $('#paymentModal h5.modal-title .product-name').text(productName);
+            $('#paymentModal h5.modal-title .product-price').text(productPrice);
         });
         $('.product-card a.btn.payment').click(function(event){
             var productName = $(event.target).closest('.product-card').find('.product-title').text();
@@ -77,8 +100,8 @@
             //console.log(productName + " - " + productPrice);
             $('#paymentModal form #edit-product-name').val(productName);
             $('#paymentModal form #edit-product-price').val(productPrice);
-            $('#paymentModal h3.windows-title .product-name').text(productName);
-            $('#paymentModal h3.windows-title .product-price').text(productPrice);
+            $('#paymentModal h5.modal-title .product-name').text(productName);
+            $('#paymentModal h5.modal-title .product-price').text(productPrice);
         })
     }
   };

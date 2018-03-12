@@ -336,22 +336,24 @@ footer {
     }
 }
 #paymentModal {
-    .modal-dialog {
-        //width: 700px;
-        max-width: 700px;
-        .modal-header h5 {
-            text-transform: uppercase;
-        }
-        h3.windows-title {
+    .modal-header {
+        h5.modal-title {
             font-size: 22px;
             padding-bottom: 20px;
-            text-align: center;
+            //text-align: center;
             .product-name {
                 padding-right: 20px;
             }
             .product-price {
                 color: grey;
             }
+        }
+    }
+    .modal-dialog {
+        //width: 700px;
+        max-width: 700px;
+        .modal-header h5 {
+            text-transform: uppercase;
         }
         .modal-body .content {
             p,
@@ -410,6 +412,28 @@ footer {
                         width: 63%;
                     }
 
+                    //Placeholder
+                    input::-moz-placeholder{
+                        color : $c_silver;
+                        font-size: 12px;
+                    }
+                    input::-webkit-input-placeholder{
+                        color : $c_silver;
+                        font-size: 12px;
+                    }
+                    input:-ms-input-placeholder{
+                        color : $c_silver;
+                        font-size: 12px;
+                    }
+                    input::-ms-input-placeholder{
+                        color : $c_silver;
+                        font-size: 12px;
+                    }
+                    input::placeholder {
+                        color : $c_silver;
+                        font-size: 12px;
+                    }
+
                     &#edit-order-delivery--wrapper {
                         legend {
                             display: none;
@@ -434,21 +458,26 @@ footer {
                     }
 
                     &.form-type-datetime {
-                        & > label {
-                            padding-top: 26px;
-                        }
                         .form-item-order-date-time-date,
                         .form-item-order-date-time-time {
                             width: 40%;
                             label {
-                                width: 100px;
+                                display: none;
+/*                                width: 100px;
                                 position: relative;
                                 clip-path: inherit;
-                                height: 20px;
+                                height: 12px;
                                 text-align: left;
+                                color: #6c757d;
+                                font-size: 11px;
+                                line-height: 1;*/
                             }
                             input {
+                                margin-top: 0;
                                 width: 100%;
+                            }
+                            &:first-of-type {
+                                margin-right: 13px;
                             }
                         }
                         .description {
@@ -477,6 +506,7 @@ footer {
                     label.form-check-label {
                         width: calc(35% + 18px);
                         text-align: right;
+                        margin-bottom: 10px;
                         label {
                             padding-right: 30px;
                         }
@@ -487,6 +517,12 @@ footer {
                     }
                     .description {
                         padding-left: 10px;
+                        a {
+                            text-decoration: underline;
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
                         &#edit-order-delivery-main--description {
                             display: inline-block;
                         }
@@ -516,6 +552,15 @@ footer {
                         .description {
                             display: inline;
                             padding-left: 10px;
+                        }
+                    }
+                }
+                #edit-order-payment-method--wrapper {
+                    legend {
+                        padding-left: 234px;
+                        span {
+                            border-bottom: 1px dashed;
+                            cursor: pointer;
                         }
                     }
                 }
