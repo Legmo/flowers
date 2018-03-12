@@ -55,6 +55,10 @@
                         <h2{{ title_attributes }}>{{ label }}</h2>
                     {% endif %}
                     {{ title_suffix }}
+                    <h3 class="windows-title">
+                        <span class="product-name"></span>
+                        <span class="product-price"></span>
+                    </h3>
                     {% block content %}
                         <div{{ content_attributes.addClass('content') }}>
                             {{ content }}
