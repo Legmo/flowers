@@ -336,24 +336,20 @@ footer {
     }
 }
 #paymentModal {
-    .modal-header {
-        h5.modal-title {
-            font-size: 22px;
-            padding-bottom: 20px;
-            //text-align: center;
-            .product-name {
-                padding-right: 20px;
-            }
-            .product-price {
-                color: grey;
-            }
-        }
-    }
     .modal-dialog {
-        //width: 700px;
         max-width: 700px;
-        .modal-header h5 {
-            text-transform: uppercase;
+        .modal-header {
+            h5.modal-title {
+                font-size: 22px;
+                padding-bottom: 20px;
+                //text-align: center;
+                .product-name {
+                    padding-right: 20px;
+                }
+                .product-price {
+                    color: $c_pink-dark;
+                }
+            }
         }
         .modal-body .content {
             p,
