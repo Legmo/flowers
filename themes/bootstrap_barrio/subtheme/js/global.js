@@ -103,6 +103,110 @@
             $('#paymentModal h5.modal-title .product-name').text(productName);
             $('#paymentModal h5.modal-title .product-price').text(productPrice);
         })
+
+        //Webform - Yndex.Money
+        //console.log(document.location.href);
+
+        //Webform - Yandex.Money
+        //Local Storage
+        $('#paymentModal form .webform-button--submit').click( function() {
+            var paymentOnline = false;
+            var price = $('#paymentModal #paymentModalLabel .product-price').html().replace(/[^-0-9]/gim,'');
+            var productName = $('#paymentModal #paymentModalLabel .product-name').html();
+            var phone = $('#paymentModal #edit-client-phone').val();
+            var comment = $('#paymentModal #edit-order-comment').val();
+            var card = false;
+            var delivery = false;
+
+            if($('#paymentModal #edit-order-payment-method-on-line-').prop('checked')) {
+                paymentOnline = true;
+            }
+            if($('#paymentModal #edit-order-card').prop('checked')) {
+                card = true;
+            }
+            if($('#paymentModal #edit-order-delivery-main').prop('checked')) {
+                delivery = true;
+            }
+
+            /*console.log(
+                'paymentOnline: ' + paymentOnline +' '+
+                'price: ' + price +' '+
+                'productName: ' + productName +' '+
+                'phone: ' + phone +' '+
+                'comment: ' + comment +' '+
+                'card: ' + card +' '+
+                'delivery: ' + delivery
+            );*/
+
+            localStorage.setItem('paymentOnline', paymentOnline);
+            localStorage.setItem('price', price);
+            localStorage.setItem('productName', productName);
+            localStorage.setItem('phone', phone);
+            //localStorage.setItem('comment', comment);
+            localStorage.setItem('card', card);
+            localStorage.setItem('delivery', delivery);
+        })
+
+        //Confirmation page
+        if ($('body').hasClass('page-node-111')){
+            $('body').once('confirmation').each(function() {
+                var paymentOnline = false;
+                paymentOnline = localStorage.getItem('paymentOnline', paymentOnline);
+
+                var price = localStorage.getItem('price', price);
+                var productName = localStorage.getItem('productName', productName);
+                var phone = localStorage.getItem('phone', phone);
+                var card = localStorage.getItem('card', card);
+                var cardTxt = '';
+                var delivery = localStorage.getItem('delivery', delivery);
+                var deliveryTxt = '';
+                var paymentComment = '';
+                //var comment = localStorage.getItem('comment', comment);
+
+                //Additional payments - card
+                if (card == 'true') {
+                    cardTxt = 'да';
+                    paymentComment = paymentComment + '+ цена открытки';
+                } else {
+                    cardTxt = 'нет';
+                }
+                //Additional payments - delivery
+                if (delivery == 'true') {
+                    deliveryTxt = 'да';
+                    paymentComment = paymentComment + ' + цена доставки';
+                } else {
+                    deliveryTxt = 'нет';
+                }
+                var comment = 'Товар: ' + productName + '; открытка: ' + cardTxt + '; доcтавка: ' + deliveryTxt;
+
+                //Setup price comment
+                if (paymentComment !== '') {
+                    $('.step-payment form.payment-form .for-item.price .payment-comment-phone').show();
+                }
+
+                //Show-hide payment form
+                if (paymentOnline == 'true'){
+                    $('.step-payment').show();
+                }
+                else {
+                    $('.step-standart').show();
+                }
+
+                //Setup payment-form settings
+                if (paymentOnline == 'true'){
+                    $('.step-payment form.payment-form .for-item.price input').val(price);
+                    $('.step-payment form.payment-form .for-item.phone input').val(phone);
+                    $('.step-payment form.payment-form .for-item.comment input').val(comment);
+                    $('.step-payment form.payment-form .for-item.price .payment-comment').text(paymentComment);
+                }
+
+                //Clear LocalStorage
+                $('.step-payment form.payment-form button').click( function() {
+                    localStorage.clear()
+                })
+            });
+        }
+
     }
   };
 
