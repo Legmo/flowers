@@ -135,14 +135,8 @@ a.btn.payment {
 }
 
 //Крупные блоки
-#header .main-content ,
-#main,
-footer .main-content {
-    max-width: 1200px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    //border: 1px solid red;
 }
 #header {
     padding-top: 10px;
@@ -583,7 +577,8 @@ footer {
         }
     }
 }
-//Страницы
+
+//Страницы - Главная
 body.path-frontpage {
     #header .site-logo {
         &.for-inner {
@@ -595,8 +590,6 @@ body.path-frontpage {
     }
     #block-front-about {
         margin-bottom: 30px;
-        width: 50%;
-        float: left;
         .info-left {
             padding: 0 30px 0 0;
             h1 {
@@ -621,10 +614,10 @@ body.path-frontpage {
         }*/
     }
     #block-views-block-front-actions {
-        width: 45%;
-        float: right;
+        //width: 45%;
+        //float: right;
         background-color: $c_pink-light;
-        margin: 0 0 20px 20px;
+        margin: 0 0 20px 0;
         padding: 15px;
         ul {
             margin: 0;
@@ -673,12 +666,33 @@ body.path-frontpage {
     }
     .block-views-blockfront-new-block-1 {
         clear: both;
+        .view-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .views-row {
+                @media screen and (max-width: 575.99px) {
+                    width: 100%;
+                }
+                @include media-breakpoint-only (sm) {
+                    width: 100%;
+                }
+                @include media-breakpoint-only (md) {
+                    width: calc((100%/2));
+                }
+                @include media-breakpoint-up (lg) {
+                    width: calc((100%/3));
+                }
+            }
+        }
         .view-footer {
             padding-top: 50px;
             text-align: center;
         }
     }
 }
+
+//Страницы - Каталог
 body.path-catalog {
     .view-catalog {
         .view-filters {
@@ -729,15 +743,15 @@ body.path-catalog {
 
 //Общее для всех товаров
 #block-button-payment {
-    position: relative;
-    width: 100%;
+    //position: relative;
+    //width: 100%;
     p {
-        height: 1px;
-        display: block;
+        //height: 1px;
+        //display: block;
         a.btn.payment {
             position: relative;
-            left: calc(50% + 20px);
-            bottom: -80px;
+            //left: calc(50% + 20px);
+            //bottom: -80px;
             z-index: 3;
         }
     }
@@ -774,9 +788,11 @@ body.path-catalog {
             img {
                 display: block;
                 margin: 0 auto;
-                width: auto;
+                width: 100%;
+                //width: auto;
                 //max-width: 100%;
-                height: 500px;
+                //height: 500px;
+                height: auto;
             }
             &:first-of-type {
                 display: block;
@@ -788,11 +804,11 @@ body.path-catalog {
     }
 }
 #block-payment-type {
-    width: 100%;
-    padding-left: calc(50% + 20px);
-    position: relative;
-    z-index: 3;
-    margin: -200px 0 0;
+    //width: 100%;
+    //padding-left: calc(50% + 20px);
+    //position: relative;
+    //z-index: 3;
+    //margin: -200px 0 0;
     h2 {
         font-size: 18px;
         color: $c_gray;
@@ -813,55 +829,123 @@ body.path-catalog {
         }
     }
 }
-#block-services {
-    width: 100%;
-    background-color: $c_silver_light;
-    padding: 45px 0 65px;
-    margin-top: 50px;
-    margin-bottom: -40px;
-    h2 {
+body.node--type-composition,
+body.node--type-product-bouquet,
+body.node--type-product-flowers {
+    .region-content-top {
         display: none;
     }
-    h3 {
-        font-size: 26px;
-        text-align: center;
-        color: $c_green_dark;
-        text-transform: uppercase;
-        margin-bottom: 30px;
-    }
-    a {
-        text-align: center;
-        color: $c_pink-dark;
-        .ico {
-            display: block;
-            margin: 0 auto 25px;
-            padding: 7px;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background-color: white;
-            .circle-outer {
-                display: block;
-                padding: 8px;
-                margin: 0 auto;
-                width: 146px;
-                height: 146px;
-                border-radius: 50%;
-                background-color: $c_silver_light;
+    .region-content-bottom {
+        padding: 45px 0 65px;
+        margin-top: 50px;
+        margin-bottom: -40px;
+        background-color: $c_silver_light;
+        #block-services {
+            width: 100%;
+            h2.block-title {
+                font-size: 26px;
+                text-align: center;
+                color: $c_green_dark;
+                text-transform: uppercase;
+                margin-bottom: 30px;
             }
-            .circle-inner {
-                display: block;
-                margin: 0 auto;
-                width: 130px;
-                height: 130px;
-                border-radius: 50%;
-                background-color: white;
+            .field--name-body {
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0;
+                    margin: 0;
+                    li {
+                        display: block;
+                        width: calc(100% / 3);
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        a {
+                            display: block;
+                            text-align: center;
+                            color: $c_pink-dark;
+                            .ico {
+                                display: block;
+                                margin: 0 auto 25px;
+                                padding: 7px;
+                                width: 160px;
+                                height: 160px;
+                                border-radius: 50%;
+                                background-color: white;
+                                .circle-outer {
+                                    display: block;
+                                    padding: 8px;
+                                    margin: 0 auto;
+                                    width: 146px;
+                                    height: 146px;
+                                    border-radius: 50%;
+                                    background-color: $c_silver_light;
+                                }
+                                .circle-inner {
+                                    display: block;
+                                    margin: 0 auto;
+                                    width: 130px;
+                                    height: 130px;
+                                    border-radius: 50%;
+                                    background-color: white;
+                                    text-indent: -100000px;
+                                }
+                            }
+                            .title {
+                                display: block;
+                                text-align: center;
+                                font-size: 26px;
+                            }
+                        }
+                    }
+                }
             }
         }
-        .title {
-            display: block;
-            text-align: center;
-            font-size: 26px;
+
+        @media screen and (max-width: 575.99px) {
+            #block-services {
+                .field--name-body {
+                    ul {
+                        flex-wrap: wrap;
+                        li {
+                            width: 100%;
+                            margin-bottom: 50px;
+                            &:last-of-type {
+                                margin-bottom: 0;
+                            }
+                            a .ico {
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include media-breakpoint-only (sm) {
+            #block-services {
+                .field--name-body {
+                    ul {
+                        flex-wrap: wrap;
+                        li {
+                            width: 100%;
+                            margin-bottom: 50px;
+                            &:last-of-type {
+                                margin-bottom: 0;
+                            }
+                            a .ico {
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include media-breakpoint-only (md) {
+
+        }
+        @include media-breakpoint-up (lg) {
+
         }
     }
 }
@@ -873,13 +957,13 @@ body.node--type-product-bouquet {
     }
     .node__content {
         .field--name-field-photo-bouquet {
-            float: left;
-            width: 50%;
-            max-width: 50%;
+            //float: left;
+            //width: 50%;
+            //max-width: 50%;
             overflow: hidden;
         }
         .field--name-field-price-bouquet {
-            padding-bottom: 120px;
+            //padding-bottom: 120px;
             color: $c_pink-dark;
             font-size: 28px;
             .rouble {
@@ -991,8 +1075,7 @@ body.node--type-present {
     }
 }
 
-
-//Поддтверждение заказа + On-line оплата
+//Страницы - Поддтверждение заказа + On-line оплата
 body.page-node-111,
 body.page-node-110 {
     .step-standart,
@@ -1066,7 +1149,8 @@ body.page-node-111 {
         display: none;
     }
 }
-//Контакты
+
+//Страницы - Контакты
 body.page-node-2 {
     .contact-line {
         .contact-label {
@@ -1087,7 +1171,8 @@ body.page-node-2 {
         height: 500px;
     }
 }
-//О нас
+
+//Страницы - О нас
 body.page-node-1 {
     .portret_Lena {
         background: url('../img/portret_Lena.jpg') no-repeat center;
