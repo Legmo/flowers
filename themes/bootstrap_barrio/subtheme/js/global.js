@@ -15,6 +15,7 @@
         var atrSrc = '';
 
         if (($(slide).length) > 1) {
+            $('.slider.main-container').removeClass('one-pic');
             $('.slider.thumbs-container').removeClass('hide');
             $('.slider.thumbs-container .slide-thumbs:first-of-type').addClass('active');
             $(slideThumbs).on('click', function(event) {

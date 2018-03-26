@@ -49,6 +49,7 @@ a.btn.payment {
     padding-top: 20px;
     height: 450px;
     transition: $transition;
+    background-color: white;
     border: 2px solid transparent;
     border-bottom: none;
     .product-price {
@@ -289,9 +290,13 @@ a.btn.payment {
     }
 
 }
+#main-wrapper {
+    background: url(../img/background-main.jpg) repeat;
+    padding: 10px 0 60px;
+    margin: 0;
+}
 footer {
     background-color: $c_pink-light;
-    margin-top: 60px;
     padding: 10px 0;
     .site-footer__top .region {
         width: 100%;
@@ -678,10 +683,10 @@ body.path-frontpage {
                     width: 100%;
                 }
                 @include media-breakpoint-only (md) {
-                    width: calc((100%/2));
+                    width: calc((100% - 35px)/2);
                 }
                 @include media-breakpoint-up (lg) {
-                    width: calc((100%/3));
+                    width: calc((100% - (35px * 2))/3);
                 }
             }
         }
@@ -695,6 +700,9 @@ body.path-frontpage {
 //Страницы - Каталог
 body.path-catalog {
     .view-catalog {
+        .view-content {
+            justify-content: space-between;
+        }
         .view-filters {
             display: none;
 
@@ -734,13 +742,6 @@ body.path-catalog {
                 }
             }
         }
-        .view-content {
-            //width: 75%;
-            //float: right;
-            .views-row {
-                width: calc(100% / 3);
-            }
-        }
     }
 
     @media screen and (max-width: 575.99px) {
@@ -765,12 +766,20 @@ body.path-catalog {
         .view-catalog {
             .view-content {
                 .views-row {
-                    width: calc(100% / 2);
+                    width: calc((100% - 35px) / 2);
                 }
             }
         }
     }
-    @include media-breakpoint-up (lg) { }
+    @include media-breakpoint-up (lg) {
+        .view-catalog {
+            .view-content {
+                .views-row {
+                    width: calc((100% - (35px * 2))/3);
+                }
+            }
+        }
+    }
 }
 
 //Общее для всех товаров
@@ -950,6 +959,9 @@ body.node--type-product-flowers {
             width: calc(100% - (100px + 30px));
             margin-bottom: 50px;
             float: left;
+            &.one-pic {
+                width: 100%;
+            }
             .slide {
                 display: none;
                 img {
@@ -976,6 +988,7 @@ body.node--type-product-flowers {
     .field--name-field-photo-present
     .field--name-field-photo-composition {
         overflow: hidden;
+        width: 100%;
     }
 
     .field--name-field-price-flower,
