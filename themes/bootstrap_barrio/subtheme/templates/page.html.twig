@@ -129,6 +129,7 @@
 
 {% block content %}
     <div id="main">
+        {{ page.content_top }}
         <div class="container">
             {% if page.breadcrumb %}
               <div class="row">
@@ -139,7 +140,6 @@
                 <main{{ content_attributes }}>
                   <section class="section">
                     <a id="main-content" tabindex="-1"></a>
-                      {{ page.content_top }}
                       {{ page.content }}
                   </section>
                 </main>
