@@ -737,98 +737,44 @@ body.path-catalog {
         .view-content {
             //width: 75%;
             //float: right;
+            .views-row {
+                width: calc(100% / 3);
+            }
         }
     }
-}
 
-//Общее для всех товаров
-#block-button-payment {
-    //position: relative;
-    //width: 100%;
-    p {
-        //height: 1px;
-        //display: block;
-        a.btn.payment {
-            position: relative;
-            //left: calc(50% + 20px);
-            //bottom: -80px;
-            z-index: 3;
-        }
-    }
-}
-.node .slider {
-    &.thumbs-container {
-        float: left;
-        //margin-right: 30px;
-        width: 108px;
-        height: 510px;
-        .slide-thumbs {
-            margin-bottom: 5px;
-            height: 108px;
-            border: 4px solid transparent;
-            img {
-                width: 100px;
-                height: 100px;
-                margin: 0 auto;
-            }
-            &.active {
-                border-color: $c_silver_light;
-            }
-        }
-        &.hide {
-            display: none;
-        }
-    }
-    &.main-container {
-        width: calc(100% - (100px + 30px));
-        margin-bottom: 50px;
-        float: left;
-        .slide {
-            display: none;
-            img {
-                display: block;
-                margin: 0 auto;
-                width: 100%;
-                //width: auto;
-                //max-width: 100%;
-                //height: 500px;
-                height: auto;
-            }
-            &:first-of-type {
-                display: block;
-            }
-            &.active {
-                border: 1px solid red;
-            }
-        }
-    }
-}
-#block-payment-type {
-    //width: 100%;
-    //padding-left: calc(50% + 20px);
-    //position: relative;
-    //z-index: 3;
-    //margin: -200px 0 0;
-    h2 {
-        font-size: 18px;
-        color: $c_gray;
-        text-transform: uppercase;
-    }
-    .content {
-        ul {
-            padding: 0;
-            margin: 0;
-            li {
-                padding-left: 10px;
-                list-style: none;
-                &:before {
-                    content: '—';
-                    padding-right: 10px;
+    @media screen and (max-width: 575.99px) {
+        .view-catalog {
+            .view-content {
+                .views-row {
+                    width: 100%;
                 }
             }
         }
     }
+    @include media-breakpoint-only (sm) {
+        .view-catalog {
+            .view-content {
+                .views-row {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-only (md) {
+        .view-catalog {
+            .view-content {
+                .views-row {
+                    width: calc(100% / 2);
+                }
+            }
+        }
+    }
+    @include media-breakpoint-up (lg) { }
 }
+
+//Общее для всех товаров
+body.node--type-present,
 body.node--type-composition,
 body.node--type-product-bouquet,
 body.node--type-product-flowers {
@@ -948,130 +894,122 @@ body.node--type-product-flowers {
 
         }
     }
+
+    #block-button-payment {
+        p a.btn.payment {
+            position: relative;
+            z-index: 3;
+        }
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+    #block-payment-type {
+        margin-top: 50px;
+        h2 {
+            font-size: 18px;
+            color: $c_gray;
+            text-transform: uppercase;
+        }
+        .content ul {
+            padding: 0;
+            margin: 0;
+            li {
+                padding-left: 10px;
+                list-style: none;
+                &:before {
+                    content: '—';
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+    .slider {
+        &.thumbs-container {
+            float: left;
+            //margin-right: 30px;
+            width: 108px;
+            height: 510px;
+            .slide-thumbs {
+                margin-bottom: 5px;
+                height: 108px;
+                border: 4px solid transparent;
+                img {
+                    width: 100px;
+                    height: 100px;
+                    margin: 0 auto;
+                }
+                &.active {
+                    border-color: $c_silver_light;
+                }
+            }
+            &.hide {
+                display: none;
+            }
+        }
+        &.main-container {
+            width: calc(100% - (100px + 30px));
+            margin-bottom: 50px;
+            float: left;
+            .slide {
+                display: none;
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 100%;
+                    //width: auto;
+                    //max-width: 100%;
+                    //height: 500px;
+                    height: auto;
+                }
+                &:first-of-type {
+                    display: block;
+                }
+                &.active {
+                    border: 1px solid red;
+                }
+            }
+        }
+    }
+
+    .field--name-field-photo,
+    .field--name-field-photo-bouquet,
+    .field--name-field-photo-present
+    .field--name-field-photo-composition {
+        overflow: hidden;
+    }
+
+    .field--name-field-price-flower,
+    .field--name-field-price-bouquet,
+    .field--name-field-price-present,
+    .field--name-field-price-composition {
+        color: $c_pink-dark;
+        font-size: 28px;
+        .rouble {
+            text-transform: uppercase;
+            font-size: 26px;
+            color: $c_silver;
+        }
+    }
+
+    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
+        color: white;
+    }
+    .field--name-field-taxonomy-bouquet-fowers {
+        .field__label {
+            font-size: 18px;
+            color: $c_gray;
+            text-transform: uppercase;
+        }
+    }
 }
 
-//Букет
-body.node--type-product-bouquet {
-    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
-        color: white;
-    }
-    .node__content {
-        .field--name-field-photo-bouquet {
-            //float: left;
-            //width: 50%;
-            //max-width: 50%;
-            overflow: hidden;
-        }
-        .field--name-field-price-bouquet {
-            //padding-bottom: 120px;
-            color: $c_pink-dark;
-            font-size: 28px;
-            .rouble {
-                text-transform: uppercase;
-                font-size: 26px;
-                color: $c_silver;
-            }
-        }
-        .field--name-field-taxonomy-bouquet-fowers {
-            .field__label {
-                font-size: 18px;
-                color: $c_gray;
-                text-transform: uppercase;
-            }
-        }
-    }
-}
-//Композиция
-body.node--type-composition {
-    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
-        color: white;
-    }
-    .node__content {
-        .field--name-field-photo-composition {
-            float: left;
-            width: 50%;
-            max-width: 50%;
-            overflow: hidden;
-            img {
-                //max-width: 100%;
-                //height: auto;
-            }
-        }
-        .field--name-field-price-composition {
-            padding-bottom: 120px;
-            color: $c_pink-dark;
-            font-size: 28px;
-            .rouble {
-                text-transform: uppercase;
-                font-size: 26px;
-                color: $c_silver;
-            }
-        }
-        .field--name-body {
-            margin-top: 40px;
-        }
-    }
-}
-//Цветы
-body.node--type-product-flowers {
-    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
-        color: white;
-    }
-    .node__content {
-        .field--name-field-photo {
-            float: left;
-            width: 50%;
-            max-width: 50%;
-            overflow: hidden;
-            img {
-                //max-width: 100%;
-                //height: auto;
-            }
-        }
-        .field--name-field-price-flower {
-            padding-bottom: 120px;
-            color: $c_pink-dark;
-            font-size: 28px;
-            .rouble {
-                text-transform: uppercase;
-                font-size: 26px;
-                color: $c_silver;
-            }
-        }
-        .field--name-body {
-            margin-top: 40px;
-        }
-    }
-}
 //Подарки
 body.node--type-present {
+    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
+        color: rgba(255,255,255,0.8);
+    }
     #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(3) a {
         color: white;
-    }
-    .node__content {
-        .field--name-field-photo-present {
-            float: left;
-            width: 50%;
-            max-width: 50%;
-            overflow: hidden;
-            img {
-                //max-width: 100%;
-                //height: auto;
-            }
-        }
-        .field--name-field-price-present {
-            padding-bottom: 120px;
-            color: $c_pink-dark;
-            font-size: 28px;
-            .rouble {
-                text-transform: uppercase;
-                font-size: 26px;
-                color: $c_silver;
-            }
-        }
-        .field--name-body {
-            margin-top: 40px;
-        }
     }
 }
 
