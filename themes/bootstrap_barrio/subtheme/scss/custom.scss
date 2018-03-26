@@ -383,6 +383,65 @@ footer {
     .site-footer__top .region {
         width: 100%;
     }
+    .region-footer-third {
+        .block {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            .field--name-body {
+                p {
+                    text-align: right;
+                    &.phone {
+                        margin: 0;
+                        font-size: 44px;
+                        color: $c_green_dark;
+                    }
+                    a {
+                        color: $c_black;
+                        &.email {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                ul {
+                    overflow: hidden;
+                    padding: 0;
+                    li {
+                        float: right;
+                        width: 50px;
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        text-align: center;
+                        overflow: hidden;
+                        a {
+                            display: block;
+                            width: 50px;
+                            height: 50px;
+                            padding: 10px;
+                            text-indent: -100000px;
+                            opacity: 0.8;
+                            transition: $transition;
+                            &:hover {
+                                opacity: 1;
+                                transition: $transition;
+                            }
+                            &.social-vk {
+                                display: none;
+                            }
+                            &.social-fb {
+                                background: url(../img/icon_social-facebook.png) no-repeat center;
+                            }
+                            &.social-inst {
+                                background: url(../img/icon_social-instagram.png) no-repeat center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     ul.nav.navbar-nav {
         flex-wrap: nowrap;
         flex-direction: row;
@@ -392,6 +451,8 @@ footer {
             a {
                 transition: $transition;
                 color: $c_pink-dark;
+                text-transform: uppercase;
+                font-size: 25px;
                 &:hover {
                     transition: $transition;
                 }
@@ -401,6 +462,21 @@ footer {
                 }
 
             }
+        }
+    }
+
+    @media screen and (max-width: 575.99px) {
+    }
+    @include media-breakpoint-only (sm) {
+    }
+    @include media-breakpoint-only (md) {
+    }
+    @include media-breakpoint-up (lg) {
+        .site-footer__top .region.region-footer-first {
+            width: 70%;
+        }
+        .site-footer__top .region-footer-third {
+            width: 30%;
         }
     }
 }
@@ -790,6 +866,11 @@ body.path-frontpage {
         padding-top: 0;
         .block-views-blockfront-new-block-1 {
             clear: both;
+            h2.block-title {
+                font-size: 43px;
+                color: $c_pink-dark;
+                padding-top: 8px;
+            }
             .view-content {
                 display: flex;
                 flex-wrap: wrap;
