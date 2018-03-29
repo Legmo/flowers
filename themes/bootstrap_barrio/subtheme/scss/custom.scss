@@ -278,6 +278,12 @@ p {
                         &.social-inst {
                             background: url(../img/icon_social-instagram.png) no-repeat center;
                         }
+                        &.social-vk {
+                            background: url(../img/icon_social-vk.png) no-repeat center;
+                        }
+                        &.email {
+                            background: url(../img/icon_mail.png) no-repeat center;
+                        }
                     }
                 }
             }
@@ -380,6 +386,9 @@ p {
 footer {
     background-color: $c_pink-light;
     padding: 10px 0;
+    .block {
+        border: 0 !important;
+    }
     .site-footer__top .region {
         width: 100%;
     }
@@ -391,6 +400,7 @@ footer {
             .field--name-body {
                 p {
                     text-align: right;
+                    margin: 0 0 10px;
                     &.phone {
                         margin: 0;
                         font-size: 44px;
@@ -398,12 +408,28 @@ footer {
                     }
                     a {
                         color: $c_black;
+                        font-size: 14px;
+                       &.address {
+                            display: inline-block;
+                            margin: 0;
+                            text-decoration: none;
+                            border-bottom: dashed 1px;
+                            cursor: pointer;
+                            transition: $transition;
+                            &:hover {
+                                color: $c_black;
+                                transition: $transition;
+                            }
+                        }
                         &.email {
                             text-decoration: underline;
+                            &:hover {
+                                text-decoration: none;
+                                transition: $transition;
+                            }
                         }
                     }
                 }
-
                 ul {
                     overflow: hidden;
                     padding: 0;
@@ -428,7 +454,7 @@ footer {
                                 transition: $transition;
                             }
                             &.social-vk {
-                                display: none;
+                                background: url(../img/icon_social-vk.png) no-repeat center;
                             }
                             &.social-fb {
                                 background: url(../img/icon_social-facebook.png) no-repeat center;
