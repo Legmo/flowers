@@ -2,6 +2,41 @@
 @import "mixins";
 @import "variables";
 
+
+//Fonts
+@font-face {
+    font-family: 'Roboto Condensed Light';
+    src: url('../fonts/RobotoCondensedLight.eot');
+    src: url('../fonts/RobotoCondensedLight.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/RobotoCondensedLight.woff') format('woff'),
+    url('../fonts/RobotoCondensedLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Condensed Regular';
+    src: url('../fonts/RobotoCondensedRegular.eot');
+    src: url('../fonts/RobotoCondensedRegular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/RobotoCondensedRegular.woff') format('woff'),
+    url('../fonts/RobotoCondensedRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+//Типографика
+body {
+    font-family: 'Roboto Condensed Light', sans-serif;
+}
+a,
+p,
+li {
+    font-family: 'Roboto Condensed Light', sans-serif;
+}
+p {
+    line-height: 1.2;
+}
+
 //Элементы
 a,
 button {
@@ -24,9 +59,10 @@ a.btn.payment {
 }
 .rouble {
     font-weight: normal;
-    color: $c_pink-silver;
+    color: $c_silver;
     font-size: 18px;
     text-transform: uppercase;
+    font-family: 'Roboto Condensed Light', sans-serif;
 }
 .view ul.pagination {
     width: 285px;
@@ -45,24 +81,32 @@ a.btn.payment {
 .product-card {
     position: relative;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-top: 20px;
-    height: 450px;
+    height: 515px;
     transition: $transition;
     background-color: white;
-    border: 2px solid transparent;
+    border: 13px solid transparent;
     border-bottom: none;
     .product-photos {
         overflow: hidden;
     }
     .product-price {
-        margin: 10px auto;
-        font-size: 20px;
+        margin: 10px auto 10px;
+        font-size: 46px;
         font-weight: bold;
         color: $c_pink-dark;
+        font-family: 'Roboto Condensed Regular', sans-serif;
+        .rouble {
+            font-size: 43px;
+        }
     }
     .product-title {
         margin-bottom: 20px;
+        font-size: 24px;
+        display: block;
+        max-height: 60px;
+        overflow: hidden;
     }
     .coverlink {
         display: block;
@@ -78,12 +122,12 @@ a.btn.payment {
         background-color: white;
         height: 0;
         position: absolute;
-        width: calc(100% + (2px*2));
-        left: -2px;
+        width: calc(100% + (13px*2));
+        left: -13px;
         bottom: 0;
         z-index: 0;
         transition: $transition;
-        border: 2px solid transparent;
+        border: 13px solid transparent;
         border-top: none;
     }
     .coverlink-bottom {
@@ -119,16 +163,16 @@ a.btn.payment {
     }
 
     &.open {
-        border-color: silver;
+        border-color: $c_silver_light;
         border-bottom: 0;
         .bottom-inf {
-            left: -2px;
+            left: -13px;
             height: 80px;
             bottom: -80px;
             transition: $transition;
 
             z-index: 3;
-            border-color: silver;
+            border-color: $c_silver_light;
             border-top: 0;
             &:hover a.btn.more-info {
                 transition: $transition;
@@ -136,39 +180,6 @@ a.btn.payment {
             }
         }
     }
-}
-
-//Fonts
-@font-face {
-    font-family: 'Roboto Condensed Light';
-    src: url('../fonts/RobotoCondensedLight.eot');
-    src: url('../fonts/RobotoCondensedLight.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/RobotoCondensedLight.woff') format('woff'),
-    url('../fonts/RobotoCondensedLight.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Roboto Condensed Regular';
-    src: url('../fonts/RobotoCondensedRegular.eot');
-    src: url('../fonts/RobotoCondensedRegular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/RobotoCondensedRegular.woff') format('woff'),
-    url('../fonts/RobotoCondensedRegular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-//Типографика
-body {
-    font-family: 'Roboto Condensed Light', sans-serif;
-}
-a,
-p,
-li {
-    font-family: 'Roboto Condensed Light', sans-serif;
-}
-p {
-    line-height: 1.2;
 }
 
 //Крупные блоки
@@ -327,10 +338,13 @@ p {
                                 cursor: default;
                             }
                         }
+
+                        &:first-of-type a {
+                          padding-left: 0;
+                        }
                         &:nth-last-of-type(3) {
                             margin-right: 60px;
                         }
-
                     }
                 }
                 .search-block-form {
@@ -823,69 +837,102 @@ body.path-frontpage {
             background-color: $c_pink-light;
             margin: 0 0 20px 0;
             padding: 15px;
-            ul {
-                margin: 0;
-                padding: 0;
-                li {
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                }
-            }
-            .img {
-                margin-left: 15px;
-            }
-            .label {
-                background: url(../img/label-action.png) no-repeat left;
-                width: 138px;
-                height: 47px;
-                margin: 15px 0 30px;
-            }
-            .title {
-                color: $c_gray;
-                font-size: 18px;
-                margin-bottom: -5px;
-            }
-            .price {
-                font-size: 30px;
-                font-weight: bold;
-                color: $c_pink-dark;
-                margin-bottom: 25px;
-                .rouble {
-                    font-size: 22px;
-                }
-            }
-            .button-box-info {
-                margin: 0 0 10px;
-                a {
-                    padding-left: 0;
-                    color: $c_green_x-dark;
-                    font-size: 18px;
-                    &:hover {
-                        text-decoration: underline;
+            .view-front-actions {
+                position: relative;
+                .swiper-container {
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            background-color: $c_pink-light;
+                            height: auto !important;
+                            .row {
+                                padding: 0;
+                                & > div {
+                                    padding: 0;
+                                    margin: 0;
+                                }
+                            }
+                            .img {
+                                background-color: white;
+                                margin-right: 25px;
+                                min-height: 100%;
+                                a {
+                                    display: block;
+                                    width: 100%;
+                                    img {
+                                        display: block;
+                                        max-width: 100%;
+                                        margin: 0 auto;
+                                        height: auto;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
+                .swiper-button {
+                    position: absolute;
+                    top: 23px;
+                    &.swiper-button-prev {
+                        right: 45px;
+                        left: auto;
+                    }
+                    &.swiper-button-next {
+                        right: 10px;
+                    }
+                }
+                .label {
+                    background: url(../img/label-action.png) no-repeat left;
+                    width: 138px;
+                    height: 47px;
+                    //margin: 15px 0 30px;
+                    margin: 0 0 30px;
+                }
+                .title {
+                    color: $c_gray;
+                    font-size: 18px;
+                    margin-bottom: -5px;
+                }
+                .price {
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: $c_pink-dark;
+                    margin-bottom: 25px;
+                    .rouble {
+                        font-size: 22px;
+                    }
+                }
+                .button-box-info {
+                    margin: 0 0 10px;
+                    a {
+                        padding-left: 0;
+                        color: $c_green_x-dark;
+                        font-size: 18px;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .button-box-buy {}
+
+
+
+                /*        .slider-front {
+                            h3 {
+                                padding: 15px 0 10px;
+                                text-align: center;
+                            }
+                            .tmp {
+                                margin-top: 50px;
+                                background: url(../img/flowers_tmp.jpg) no-repeat center;
+                                background-size: contain;
+                                min-height: 250px;
+                            }
+                            p {
+                                padding-top: 10px;
+                                text-align: center;
+                            }
+                        }*/
             }
-            .button-box-buy {}
-
-
-
-            /*        .slider-front {
-                        h3 {
-                            padding: 15px 0 10px;
-                            text-align: center;
-                        }
-                        .tmp {
-                            margin-top: 50px;
-                            background: url(../img/flowers_tmp.jpg) no-repeat center;
-                            background-size: contain;
-                            min-height: 250px;
-                        }
-                        p {
-                            padding-top: 10px;
-                            text-align: center;
-                        }
-                    }*/
         }
     }
     #main-wrapper {
@@ -922,7 +969,6 @@ body.path-frontpage {
             }
         }
     }
-
 
     @media screen and (max-width: 575.99px) {}
     @include media-breakpoint-only (sm) {}
@@ -1024,7 +1070,7 @@ body.path-catalog {
     }
 }
 
-//Общее для всех товаров
+//Страницы - Товары (букеты, цветы, композиции, подарки)
 body.node--type-present,
 body.node--type-composition,
 body.node--type-product-bouquet,
@@ -1258,7 +1304,7 @@ body.node--type-product-flowers {
     }
 }
 
-//Подарки
+//Страницы - Подарки
 body.node--type-present {
     #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
         color: rgba(255,255,255,0.8);

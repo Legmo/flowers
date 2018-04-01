@@ -131,32 +131,34 @@
     <div id="main">
         {{ page.content_top }}
         <div class="container">
-            {% if page.breadcrumb %}
-              <div class="row">
-                {{ page.breadcrumb }}
-              </div>
-            {% endif %}
-            <div class="clearfix">
-                <main{{ content_attributes }}>
-                  <section class="section">
-                    <a id="main-content" tabindex="-1"></a>
-                      {{ page.content }}
-                  </section>
-                </main>
-              {% if page.sidebar_first %}
-                <div{{ sidebar_first_attributes }}>
-                  <aside class="section" role="complementary">
-                    {{ page.sidebar_first }}
-                  </aside>
+            <div class="row"> {#for frontpage views left-right paddings#}
+                {% if page.breadcrumb %}
+                  <div class="row">
+                    {{ page.breadcrumb }}
+                  </div>
+                {% endif %}
+                <div class="clearfix">
+                    <main{{ content_attributes }}>
+                      <section class="section">
+                        <a id="main-content" tabindex="-1"></a>
+                          {{ page.content }}
+                      </section>
+                    </main>
+                  {% if page.sidebar_first %}
+                    <div{{ sidebar_first_attributes }}>
+                      <aside class="section" role="complementary">
+                        {{ page.sidebar_first }}
+                      </aside>
+                    </div>
+                  {% endif %}
+                  {% if page.sidebar_second %}
+                    <div{{ sidebar_second_attributes }}>
+                      <aside class="section" role="complementary">
+                        {{ page.sidebar_second }}
+                      </aside>
+                    </div>
+                  {% endif %}
                 </div>
-              {% endif %}
-              {% if page.sidebar_second %}
-                <div{{ sidebar_second_attributes }}>
-                  <aside class="section" role="complementary">
-                    {{ page.sidebar_second }}
-                  </aside>
-                </div>
-              {% endif %}
             </div>
         </div>
         {{ page.content_bottom }}

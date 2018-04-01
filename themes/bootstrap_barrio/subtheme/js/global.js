@@ -8,6 +8,20 @@
   Drupal.behaviors.bootstrap_barrio_subtheme = {
     attach: function (context, settings) {
 
+        //Swiper slider for Frontpage Actions
+        var swiperActions = new Swiper('body.path-frontpage .view-front-actions .swiper-container', {
+            effect: 'fade',
+            slidesPerView: 1,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
         //Slider for product page
         var slideThumbs = $('.slider.thumbs-container .slide-thumbs');
         var slide = $('.slider.main-container .slide');
