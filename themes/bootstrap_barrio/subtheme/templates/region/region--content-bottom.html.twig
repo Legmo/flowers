@@ -22,8 +22,10 @@
 %}
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
-    <div class="container">
-      {{ content }}
+    <div class="container-wrap">
+      <div class="container-fluid">
+        {{ content }}
+      </div>
     </div>
   </div>
 {% endif %}

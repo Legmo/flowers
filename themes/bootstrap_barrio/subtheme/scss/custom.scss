@@ -184,6 +184,15 @@ a.btn.payment {
 }
 
 //Крупные блоки
+.container-wrap {
+    margin: 0 auto;
+    width: 100%;
+
+    @include media-breakpoint-up (lg) {
+        max-width: 1400px;
+        padding: 0 50px;
+    }
+}
 .container {
     //border: 1px solid red;
 }
@@ -976,7 +985,7 @@ body.path-frontpage {
     @include media-breakpoint-only (md) {}
     @include media-breakpoint-up (lg) {
         .region-content-top {
-            .content-wraper {
+            .content-background {
                 background: url("../img/background_content-top.png") repeat-y center;
                 #block-front-about {
                     padding: 0;
