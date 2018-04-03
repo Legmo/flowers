@@ -93,12 +93,13 @@ a.btn.payment {
     }
     .product-price {
         margin: 10px auto 10px;
-        font-size: 46px;
+        //font-size: 46px;
+        font-size: 30px;
         font-weight: bold;
         color: $c_pink-dark;
         font-family: 'Roboto Condensed Regular', sans-serif;
         .rouble {
-            font-size: 43px;
+            font-size: 27px;
         }
     }
     .product-title {
