@@ -836,12 +836,12 @@ body.path-frontpage {
                     line-height: 1.2;
                     background: url("../img/icon_flower.png") left top no-repeat;
                 }
-
                 .time {
                     background: url("../img/icon_time.png") left top no-repeat;
                 }
                 .delivery {
-                    background: url("../img/icon_delivery.png") left top no-repeat;
+                    background: url("../img/icon_delivery.png") left 10px no-repeat;
+                    line-height: 1.2;
                 }
             }
         }
