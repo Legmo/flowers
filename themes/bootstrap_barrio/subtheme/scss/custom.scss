@@ -1434,7 +1434,7 @@ body.page-node-14 {
     @include media-breakpoint-only (sm) {}
     @include media-breakpoint-only (md) {}
     @include media-breakpoint-up (lg) {
-        .field--name-body {
+        .region-content .field--name-body {
             max-width: calc((100% / 12) * 8);
         }
     }
