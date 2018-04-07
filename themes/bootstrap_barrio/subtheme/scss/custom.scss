@@ -23,7 +23,6 @@
     font-style: normal;
 }
 
-
 //Типографика
 body {
     font-family: 'Roboto Condensed Light', sans-serif;
@@ -32,6 +31,10 @@ a,
 p,
 li {
     font-family: 'Roboto Condensed Light', sans-serif;
+}
+p + ol,
+p + ul {
+    margin-top: -12px;
 }
 p {
     line-height: 1.2;
@@ -63,6 +66,11 @@ a.btn.payment {
     font-size: 18px;
     text-transform: uppercase;
     font-family: 'Roboto Condensed Light', sans-serif;
+}
+.phone-txt {
+    font-size: 36px;
+    color: $c_green_dark;
+    line-height: 1;
 }
 .view ul.pagination {
     width: 285px;
@@ -245,7 +253,6 @@ a.btn.payment {
                     &.phone {
                         font-size: 46px;
                         line-height: 1;
-                        //transform: scale(.89,1);
                         color: $c_green_dark;
                         span {
                             font-size: 18px;
@@ -313,7 +320,6 @@ a.btn.payment {
                 }
             }
         }
-
     }
     .navigation-line {
         background-color: $c_pink-dark;
@@ -1400,6 +1406,37 @@ body.page-node-110 {
 body.page-node-111 {
     h1.page-title {
         display: none;
+    }
+}
+
+
+//Страницы - Оформление праздников
+body.page-node-14 {
+    .field--name-body p strong {
+        color: $c_green_dark;
+    }
+    .field--name-field-picture {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        padding-top: 30px;
+        .field__item {
+            width: calc((100% - (20 * 3)) / 4);
+            margin-right: 20px;
+        }
+        &::after {
+            content: "";
+            flex: auto;
+        }
+    }
+
+    @media screen and (max-width: 575.99px) {}
+    @include media-breakpoint-only (sm) {}
+    @include media-breakpoint-only (md) {}
+    @include media-breakpoint-up (lg) {
+        .field--name-body {
+            max-width: calc((100% / 12) * 8);
+        }
     }
 }
 
