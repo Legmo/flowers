@@ -98,9 +98,12 @@ a.btn.payment {
     border-bottom: none;
     .product-photos {
         overflow: hidden;
+        height: 400px;
+        max-height: 100%;
         img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain;
         }
     }
     .product-price {
@@ -120,6 +123,7 @@ a.btn.payment {
         display: block;
         max-height: 60px;
         overflow: hidden;
+        padding: 0 20px;
     }
     .coverlink {
         display: block;
@@ -155,6 +159,7 @@ a.btn.payment {
     a.btn {
         padding: 5px 15px !important;
         font-size: 18px !important;
+        margin: 0 5px;
         &.more-info {
             border-radius: 6px;
             color: white;
@@ -298,7 +303,7 @@ a.btn.payment {
                         height: 50px;
                         padding: 10px;
                         text-indent: -100000px;
-                        opacity: 0.8;
+                        opacity: 0.7;
                         transition: $transition;
                         &:hover {
                             opacity: 1;
@@ -443,7 +448,8 @@ footer {
                     a {
                         color: $c_black;
                         font-size: 14px;
-                       &.address {
+                        text-decoration: underline;
+                        &.address {
                             display: inline-block;
                             margin: 0;
                             text-decoration: none;
@@ -455,13 +461,11 @@ footer {
                                 transition: $transition;
                             }
                         }
-                        &.email {
-                            text-decoration: underline;
-                            &:hover {
-                                text-decoration: none;
-                                transition: $transition;
-                            }
+                        &:hover {
+                            text-decoration: none;
+                            transition: $transition;
                         }
+
                     }
                 }
                 ul {
@@ -514,10 +518,11 @@ footer {
                 text-transform: uppercase;
                 font-size: 18px;
                 &:hover {
+                    color: $c_black;
                     transition: $transition;
                 }
                 &.is-active {
-                    color: $c_white;
+                    color: $c_black;
                     cursor: default;
                 }
 
@@ -857,6 +862,10 @@ body.path-frontpage {
             background-color: $c_pink-light;
             margin: 0 0 20px 0;
             padding: 15px;
+            .view-content,
+            .view-content div {
+                background-color: $c_pink-light;
+            }
             .view-front-actions {
                 position: relative;
                 .swiper-container {
@@ -864,6 +873,7 @@ body.path-frontpage {
                         .swiper-slide {
                             background-color: $c_pink-light;
                             height: auto !important;
+                            overflow: hidden;
                             .row {
                                 padding: 0;
                                 & > div {
@@ -891,13 +901,34 @@ body.path-frontpage {
                 }
                 .swiper-button {
                     position: absolute;
-                    top: 23px;
+                    top: 30px;
+
+                    width: 20px;
+                    height: 30px;
+                    background: none;
+                    span {
+                        display: block;
+                        width: 20px;
+                        height: 30px;
+                        opacity: 0.65;
+                        transition: $transition;
+                    }
+                    &:hover span {
+                        opacity: 1;
+                        transition: $transition;
+                    }
                     &.swiper-button-prev {
-                        right: 45px;
+                        right: 60px;
                         left: auto;
+                        span {
+                            background: url(../img/buttons_swiper-left.png) no-repeat center;
+                        }
                     }
                     &.swiper-button-next {
-                        right: 10px;
+                        right: 25px;
+                        span {
+                            background: url(../img/buttons_swiper-right.png) no-repeat center;
+                        }
                     }
                 }
                 .label {
@@ -927,31 +958,15 @@ body.path-frontpage {
                         padding-left: 0;
                         color: $c_green_x-dark;
                         font-size: 18px;
+                        text-decoration: underline;
+                        border: 0;
+                        box-shadow: none;
                         &:hover {
-                            text-decoration: underline;
+                            text-decoration: none;
                         }
                     }
                 }
                 .button-box-buy {}
-
-
-
-                /*        .slider-front {
-                            h3 {
-                                padding: 15px 0 10px;
-                                text-align: center;
-                            }
-                            .tmp {
-                                margin-top: 50px;
-                                background: url(../img/flowers_tmp.jpg) no-repeat center;
-                                background-size: contain;
-                                min-height: 250px;
-                            }
-                            p {
-                                padding-top: 10px;
-                                text-align: center;
-                            }
-                        }*/
             }
         }
     }
@@ -1009,7 +1024,23 @@ body.path-frontpage {
 body.path-catalog {
     .view-catalog {
         .view-content {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
+            .views-row {
+                @media screen and (max-width: 575.99px) {
+                    width: 100%;
+                }
+                @include media-breakpoint-only (sm) {
+                    width: 100%;
+                }
+                @include media-breakpoint-only (md) {
+                    width: calc((100% - 35px)/2);
+                }
+                @include media-breakpoint-up (lg) {
+                    width: calc((100% - (35px * 2))/3);
+                }
+            }
         }
         .view-filters {
             display: none;
@@ -1053,39 +1084,23 @@ body.path-catalog {
     }
 
     @media screen and (max-width: 575.99px) {
-        .view-catalog {
-            .view-content {
-                .views-row {
-                    width: 100%;
-                }
-            }
+        .view-catalog .view-content .views-row {
+            width: 100%;
         }
     }
     @include media-breakpoint-only (sm) {
-        .view-catalog {
-            .view-content {
-                .views-row {
-                    width: 100%;
-                }
-            }
+        .view-catalog .view-content .views-row {
+            width: 100%;
         }
     }
     @include media-breakpoint-only (md) {
-        .view-catalog {
-            .view-content {
-                .views-row {
-                    width: calc((100% - 35px) / 2);
-                }
-            }
+        .view-catalog .view-content .views-row {
+            width: calc((100% - 35px)/2);
         }
     }
     @include media-breakpoint-up (lg) {
-        .view-catalog {
-            .view-content {
-                .views-row {
-                    width: calc((100% - (35px * 2))/3);
-                }
-            }
+        .view-catalog .view-content .views-row {
+            width: calc((100% - (35px * 2))/3);
         }
     }
 }
@@ -1151,8 +1166,32 @@ body.node--type-product-flowers {
                                     width: 130px;
                                     height: 130px;
                                     border-radius: 50%;
-                                    background-color: white;
                                     text-indent: -100000px;
+                                    background: white;
+                                    .pic {
+                                        display: block;
+                                        margin: 0 auto;
+                                        width: 130px;
+                                        height: 130px;
+                                        border-radius: 50%;
+                                        opacity: 0.85;
+                                        transition: $transition;
+                                    }
+                                }
+                                &:hover .circle-inner span {
+                                    transition: $transition;
+                                    opacity: 1;
+                                }
+                                &.delivery {
+                                    .circle-inner span {
+                                        background: url(../img/icon_delivery-big.png) no-repeat center white;
+                                    }
+                                }
+                                &.cards .circle-inner span {
+                                    background: url(../img/icon_cards-big.png) no-repeat center white;
+                                }
+                                &.presents .circle-inner span {
+                                    background: url(../img/icon_presents-big.png) no-repeat center white;
                                 }
                             }
                             .title {
@@ -1241,20 +1280,24 @@ body.node--type-product-flowers {
         }
     }
     .slider {
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
         &.thumbs-container {
             float: left;
             //margin-right: 30px;
             width: 108px;
             height: 510px;
+
             .slide-thumbs {
                 margin-bottom: 5px;
                 height: 108px;
                 border: 4px solid transparent;
-                img {
-                    width: 100px;
-                    height: 100px;
-                    margin: 0 auto;
-                }
+                background-color: white;
                 &.active {
                     border-color: $c_silver_light;
                 }
@@ -1269,18 +1312,16 @@ body.node--type-product-flowers {
             float: left;
             &.one-pic {
                 width: 100%;
+                .slide-thumbs {
+                    height: 400px;
+                    background-color: white;
+                }
             }
             .slide {
                 display: none;
-                img {
-                    display: block;
-                    margin: 0 auto;
-                    width: 100%;
-                    //width: auto;
-                    //max-width: 100%;
-                    //height: 500px;
-                    height: auto;
-                }
+                overflow: hidden;
+                height: 400px;
+                background-color: white;
                 &:first-of-type {
                     display: block;
                 }
@@ -1293,10 +1334,12 @@ body.node--type-product-flowers {
 
     .field--name-field-photo,
     .field--name-field-photo-bouquet,
-    .field--name-field-photo-present
+    .field--name-field-photo-present,
     .field--name-field-photo-composition {
         overflow: hidden;
+        height: 100%;
         width: 100%;
+        float: none;
     }
 
     .field--name-field-price-flower,
@@ -1304,7 +1347,8 @@ body.node--type-product-flowers {
     .field--name-field-price-present,
     .field--name-field-price-composition {
         color: $c_pink-dark;
-        font-size: 28px;
+        font-size: 44px;
+        font-weight: bold;
         .rouble {
             text-transform: uppercase;
             font-size: 26px;
@@ -1409,7 +1453,6 @@ body.page-node-111 {
     }
 }
 
-
 //Страницы - Оформление праздников
 body.page-node-14 {
     .field--name-body p strong {
@@ -1423,6 +1466,14 @@ body.page-node-14 {
         .field__item {
             width: calc((100% - (20 * 3)) / 4);
             margin-right: 20px;
+            img {
+                border: 10px solid transparent;
+                transition: $transition;
+            }
+            &:hover img {
+                transition: $transition;
+                border-color: $c_pink-light;
+            }
         }
         &::after {
             content: "";

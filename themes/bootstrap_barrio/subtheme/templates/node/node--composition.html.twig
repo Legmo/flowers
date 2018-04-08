@@ -95,10 +95,10 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     <div class="row">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-md-6">
         {{ content.field_photo_composition }}
       </div>
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-md-6">
         {{ content.field_price_composition }}
         {{ drupal_block('button_payment') }}
         {{ content.body }}

@@ -95,12 +95,11 @@
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     <div class="row">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-md-6">
         {{ content.field_photo_bouquet }}
       </div>
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-md-6">
         {{ content.field_price_bouquet }}
-        {#{{ drupal_entity('block', 'button_payment') }}#}
         {{ drupal_block('button_payment') }}
         {{ content.body }}
         {{ drupal_block('payment_type') }}
