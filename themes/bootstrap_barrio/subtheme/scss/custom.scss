@@ -1021,8 +1021,10 @@ body.path-frontpage {
 }
 
 //Страницы - Каталог
-body.path-catalog {
-    .view-catalog {
+body.path-catalog,
+body.path-presents {
+    .view-catalog,
+    .view-presents {
         .view-content {
             display: flex;
             flex-wrap: wrap;
@@ -1084,23 +1086,35 @@ body.path-catalog {
     }
 
     @media screen and (max-width: 575.99px) {
-        .view-catalog .view-content .views-row {
+        .view-catalog,
+        .view-presents {
+            .view-content .views-row {
             width: 100%;
+        }
         }
     }
     @include media-breakpoint-only (sm) {
-        .view-catalog .view-content .views-row {
+        .view-catalog,
+        .view-presents {
+            .view-content .views-row {
             width: 100%;
+        }
         }
     }
     @include media-breakpoint-only (md) {
-        .view-catalog .view-content .views-row {
+        .view-catalog,
+        .view-presents {
+            .view-content .views-row {
             width: calc((100% - 35px)/2);
+        }
         }
     }
     @include media-breakpoint-up (lg) {
-        .view-catalog .view-content .views-row {
+        .view-catalog,
+        .view-presents {
+            .view-content .views-row {
             width: calc((100% - (35px * 2))/3);
+        }
         }
     }
 }
