@@ -1029,20 +1029,6 @@ body.path-presents {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            .views-row {
-                @media screen and (max-width: 575.99px) {
-                    width: 100%;
-                }
-                @include media-breakpoint-only (sm) {
-                    width: 100%;
-                }
-                @include media-breakpoint-only (md) {
-                    width: calc((100% - 35px)/2);
-                }
-                @include media-breakpoint-up (lg) {
-                    width: calc((100% - (35px * 2))/3);
-                }
-            }
         }
         .view-filters {
             display: none;
@@ -1089,32 +1075,32 @@ body.path-presents {
         .view-catalog,
         .view-presents {
             .view-content .views-row {
-            width: 100%;
-        }
+                width: 100%;
+            }
         }
     }
     @include media-breakpoint-only (sm) {
         .view-catalog,
         .view-presents {
             .view-content .views-row {
-            width: 100%;
-        }
+                width: 100%;
+            }
         }
     }
     @include media-breakpoint-only (md) {
         .view-catalog,
         .view-presents {
             .view-content .views-row {
-            width: calc((100% - 35px)/2);
-        }
+                width: calc((100% - 35px)/2);
+            }
         }
     }
     @include media-breakpoint-up (lg) {
         .view-catalog,
         .view-presents {
             .view-content .views-row {
-            width: calc((100% - (35px * 2))/3);
-        }
+                width: calc((100% - (35px * 2))/3);
+            }
         }
     }
 }
