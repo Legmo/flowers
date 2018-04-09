@@ -1105,6 +1105,85 @@ body.path-presents {
     }
 }
 
+//Страницы - Каталог ПОДАРКОВ
+body.path-presents {
+/*    .view-presents {
+        .view-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .view-filters {
+            display: none;
+
+            overflow: hidden;
+            width: 25%;
+            float: left;
+            .form--inline {
+             //border: 1px solid red;
+                details {
+                    display: block;
+                    width: 100%;
+                    float: none;
+                }
+                & > fieldset {
+                    display: block;
+                    width: 100%;
+                    float: none;
+                    &.js-form-item-field-price-flower-value-min,
+                    &.js-form-item-field-price-flower-value-max {
+                        width: 40%;
+                        margin-right: 20px;
+                        float: left;
+                    }
+                    &.form-item-sort-by,
+                    &.form-item-sort-order {
+                        clear: both;
+                        width: 100%;
+                        //margin-right: 20px;
+                        //float: left;
+                    }
+                    & > label,
+                    & > legend {
+                        padding-top: 20px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 575.99px) {
+        .view-presents {
+            .view-content .views-row {
+                width: 100%;
+            }
+        }
+    }
+    @include media-breakpoint-only (sm) {
+        .view-presents {
+            .view-content .views-row {
+                width: 100%;
+            }
+        }
+    }
+    @include media-breakpoint-only (md) {
+        .view-presents {
+            .view-content .views-row {
+                width: calc((100% - 35px)/2);
+            }
+        }
+    }
+    @include media-breakpoint-up (lg) {
+        .view-presents {
+            .view-content .views-row {
+                width: calc((100% - (35px * 2))/3);
+            }
+        }
+    }*/
+}
+
 //Страницы - Товары (букеты, цветы, композиции, подарки)
 body.node--type-present,
 body.node--type-composition,
