@@ -79,7 +79,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
-                    <nav{{ navbar_attributes }}>
+                    <nav{{ navbar_attributes.removeClass('navbar-expand-sm').addClass('navbar-expand-md') }}>
                           {% endif %}
                             {% if page.primary_menu or page.header_form %}
                               <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -179,10 +179,12 @@
           <div class="main-content">
             {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
               <div class="site-footer__top clearfix">
-                {{ page.footer_first }}
-                {{ page.footer_second }}
-                {{ page.footer_third }}
-                {{ page.footer_fourth }}
+                  <div class="row">
+                    {{ page.footer_first }}
+                    {{ page.footer_second }}
+                    {{ page.footer_third }}
+                    {{ page.footer_fourth }}
+                  </div>
               </div>
             {% endif %}
             {% if page.footer_fifth %}

@@ -39,6 +39,9 @@ p + ul {
 p {
     line-height: 1.2;
 }
+h1 {
+    color: $c_pink-dark;
+}
 
 //Элементы
 a,
@@ -229,10 +232,10 @@ a.btn.payment {
             z-index: 1;
             top: 0;
             left: 0;
-            width: 353px;
-            height: 144px;
+            width: 100%;
+            height: 100%;
             background: url('../img/logo.jpg') no-repeat center;
-            background-size: cover;
+            background-size: contain;
         }
         span.txt {
             display: block;
@@ -334,10 +337,24 @@ a.btn.payment {
         #navbar-main {
             padding: 0;
             width: 100%;
-            .navbar-toggler {
-                background-color: silver;
+            button.navbar-toggler {
+                background: url('../img/icon_menu-mobile.png') no-repeat 10px center transparent;
+                opacity: 0.8;
+                border: 0;
+                transition: $transition;
+                width: auto;
+                &::after {
+                    content: "Меню";
+                    color: white;
+                    padding: 0 15px 0 5px;
+                    margin-top: 4px;
+                    float: right;
+                }
+                &:hover {
+                    opacity: 1;
+                    transition: $transition;
+                }
             }
-
             #CollapsingNavbar {
                 padding-top: 19px;
                 padding-bottom: 24px;
@@ -345,46 +362,46 @@ a.btn.payment {
                     width: 100%;
                 }
                 nav.menu--main {
-                    display: inline-block;
+                    display: block;
                     padding-right: 30px;
                     text-align: right;
-                    ul li {
-                        display: inline-block;
-                        a {
-                            color: rgba(255,255,255,0.8);
-                            transition: $transition;
-                            font-size: 27px;
-                            &:hover {
-                                color: rgba(255,255,255,1);
+                    ul {
+                        display: flex;
+                        justify-content: space-between;
+                        li {
+                            display: inline-block;
+                            a {
+                                color: rgba(255, 255, 255, 0.8);
                                 transition: $transition;
+                                &:hover {
+                                    color: rgba(255, 255, 255, 1);
+                                    transition: $transition;
+                                }
+                                &.is-active {
+                                    color: $c_white;
+                                    cursor: default;
+                                }
                             }
-                            &.is-active {
-                                color: $c_white;
-                                cursor: default;
-                            }
-                        }
 
-                        &:first-of-type a {
-                          padding-left: 0;
-                        }
-                        &:nth-last-of-type(3) {
-                            margin-right: 60px;
+                            &:first-of-type a {
+                                padding-left: 0;
+                            }
                         }
                     }
                 }
-                .search-block-form {
+            }
+            .search-block-form {
 
+                display: none;
+                float: right;
+                margin-top: -5px;
+                h2 {
                     display: none;
-                    float: right;
-                    margin-top: -5px;
-                    h2 {
-                        display: none;
-                    }
-                    form.search-form {
-                        overflow: hidden;
-                        .js-form-item {
-                            float: left;
-                        }
+                }
+                form.search-form {
+                    overflow: hidden;
+                    .js-form-item {
+                        float: left;
                     }
                 }
             }
@@ -392,30 +409,176 @@ a.btn.payment {
     }
 
     @media screen and (max-width: 575.99px) {
-        top: -280px;
-    }
-    @include media-breakpoint-only (sm) {
-        top: -280px;
-        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li {
-            &:nth-child(4) {
-                margin-right: 0;
+        top: -227px;
+        .site-logo {
+            width: 100%;
+            height: 60px;
+            span.txt {
+                display: none;
             }
-            a {
-                font-size: 15px;
+        }
+        #block-header-contacts,
+        #block-header-contacts-new {
+            padding-top: 15px;
+            .field--name-body {
+                display: block;
+                div.contact-left {
+                    text-align: center;
+                    p.phone {
+                        font-size: 30px;
+                    }
+                    .address {
+                        margin: 0 0 15px;
+                        padding: 9px 0 0;
+                        font-size: 16px;
+                    }
+                }
+                ul {
+                    width: 100%;
+                    margin: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    li {
+                        float: none;
+                    }
+                }
+            }
+        }
+        .navigation-line #navbar-main {
+            button.navbar-toggler {
+                display: inline-block;
+            }
+            #CollapsingNavbar nav.menu--main ul {
+                display: block;
+                margin-top: -15px;
+                li {
+                    display: block;
+                    padding-left: 10px;
+                    a {
+                        text-align: left;
+                        font-size: 18px;
+                        padding: 6px 0;
+                        line-height: 1;
+                    }
+                }
             }
         }
     }
+    @include media-breakpoint-only (sm) {
+        top: -254px;
+        .site-logo {
+            width: 100%;
+            height: 80px;
+            span.txt {
+                display: none;
+            }
+        }
+        #block-header-contacts,
+        #block-header-contacts-new {
+            padding-top: 15px;
+            .field--name-body {
+                display: block;
+                div.contact-left {
+                    text-align: center;
+                    p.phone {
+                        font-size: 35px;
+                    }
+                    .address {
+                        margin: 0 0 15px;
+                        padding: 9px 0 0;
+                        font-size: 17px;
+                    }
+                }
+                ul {
+                    width: 100%;
+                    margin: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    li {
+                        float: none;
+                    }
+                }
+            }
+        }
+        .navigation-line #navbar-main {
+            button.navbar-toggler {
+                display: inline-block;
+            }
+            #CollapsingNavbar nav.menu--main ul {
+            display: block;
+            margin-top: -15px;
+            li {
+                display: block;
+                padding-left: 10px;
+                a {
+                    text-align: left;
+                    font-size: 18px;
+                    padding: 4px 0;
+                    line-height: 1;
+                }
+            }
+        }
+        }
+    }
     @include media-breakpoint-only (md) {
-        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li {
-            &:nth-child(4) {
-                margin-right: 0;
+        .site-logo {
+            width: 100%;
+            height: 70%;
+            margin-top: 27px;
+            span.txt {
+                display: none;
+            }
+        }
+        #block-header-contacts,
+        #block-header-contacts-new {
+            padding-top: 15px;
+            .field--name-body {
+                display: block;
+                div.contact-left {
+                    p.phone {
+                        font-size: 30px;
+                    }
+                    .address {
+                        margin: 0 0 15px;
+                        padding: 9px 0 0;
+                        font-size: 15px;
+                    }
+                }
+                ul {
+                    width: 100%;
+                    margin: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: right;
+                    li {
+                        float: none;
+                    }
+                }
+            }
+        }
+        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li a {
+            font-size: 15px;
+        }
+    }
+    @include media-breakpoint-only (lg) {
+        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li a {
+            font-size: 18px;
+        }
+    }
+    @include media-breakpoint-only (xl) {
+        .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li a {
+            font-size: 25px;
+            &:nth-last-of-type(3) {
+                margin-right: 60px;
             }
         }
     }
 
 }
 #main-wrapper {
-    background: url(../img/background_main.jpg) repeat;
+    background: url(../img/background_main-light.jpg) repeat;
     padding: 10px 0 60px;
     margin: 0;
     #main {
@@ -428,8 +591,37 @@ footer {
     .block {
         border: 0 !important;
     }
-    .site-footer__top .region {
-        width: 100%;
+    .region-footer-first {
+        ul.nav.navbar-nav {
+            flex-wrap: nowrap;
+            flex-direction: row;
+            li {
+                display: inline-block;
+                padding: 0 10px;
+                &:first-of-type {
+                    padding-left: 0;
+                }
+                &:last-of-type {
+                    padding-right: 0;
+                }
+                a {
+                    transition: $transition;
+                    color: $c_pink-dark;
+                    text-transform: uppercase;
+                    font-size: 18px;
+                    text-align: center;
+                    &:hover {
+                        color: $c_black;
+                        transition: $transition;
+                    }
+                    &.is-active {
+                        color: $c_black;
+                        cursor: default;
+                    }
+
+                }
+            }
+        }
     }
     .region-footer-third {
         .block {
@@ -506,42 +698,105 @@ footer {
             }
         }
     }
-    ul.nav.navbar-nav {
-        flex-wrap: nowrap;
-        flex-direction: row;
-        li {
-            display: inline-block;
-            padding-right: 20px;
-            a {
-                transition: $transition;
-                color: $c_pink-dark;
-                text-transform: uppercase;
-                font-size: 18px;
-                &:hover {
-                    color: $c_black;
-                    transition: $transition;
-                }
-                &.is-active {
-                    color: $c_black;
-                    cursor: default;
-                }
 
+    @media screen and (max-width: 575.99px) {
+        &.site-footer .block {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .region-footer-first {
+            ul.nav.navbar-nav {
+                display: block;
+                li {
+                    display: block;
+                    padding: 0 20px 0 0;
+                    a {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .region-footer-third {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            width: 100%;
+            float: none;
+            .block .field--name-body {
+                p {
+                    text-align: left;
+                }
+                ul li {
+                    float: left;
+                }
             }
         }
     }
-
-    @media screen and (max-width: 575.99px) {
-    }
     @include media-breakpoint-only (sm) {
+        &.site-footer .block {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .region-footer-first {
+            ul.nav.navbar-nav {
+                flex-wrap: wrap;
+                li {
+                    display: inline-block;
+                    padding: 0 20px 0 0;
+                }
+            }
+        }
+        .region-footer-third {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            width: 100%;
+            float: none;
+            .block .field--name-body {
+                p {
+                    text-align: left;
+                }
+                ul li {
+                    float: left;
+                }
+            }
+        }
     }
     @include media-breakpoint-only (md) {
+        &.site-footer .block {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .region-footer-first {
+            ul.nav.navbar-nav {
+                padding-left: 15px;
+                padding-right: 15px;
+                flex-wrap: wrap;
+                li {
+                    display: inline-block;
+                    padding: 0 20px 0 0;
+                }
+            }
+        }
+        .region-footer-third {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            width: 100%;
+            float: none;
+            .block .field--name-body {
+                p {
+                    text-align: left;
+                }
+                ul li {
+                    float: left;
+                }
+            }
+        }
     }
     @include media-breakpoint-up (lg) {
         .site-footer__top .region.region-footer-first {
-            width: 70%;
+            //width: 70%;
         }
         .site-footer__top .region-footer-third {
-            width: 30%;
+            //width: 30%;
         }
     }
 }
@@ -937,6 +1192,9 @@ body.path-frontpage {
                     height: 47px;
                     //margin: 15px 0 30px;
                     margin: 0 0 30px;
+                    &.label-top {
+                        display: none;
+                    }
                 }
                 .title {
                     color: $c_gray;
@@ -1005,8 +1263,122 @@ body.path-frontpage {
         }
     }
 
-    @media screen and (max-width: 575.99px) {}
-    @include media-breakpoint-only (sm) {}
+    @media screen and (max-width: 575.99px) {
+        .region-content-top {
+            #block-views-block-front-actions {
+                .view-front-actions {
+                    .swiper-container .swiper-wrapper .swiper-slide {
+                        padding-bottom: 85px;
+                        .img {
+                            margin: 0 0 25px 0;
+                            width: 100%;
+                        }
+                        .label {
+                            margin: 0 0 25px;
+                            background: none;
+                            &:before {
+                                font-family: 'Roboto Condensed Light', sans-serif;
+                                content: 'Акция';
+                                font-size: 43px;
+                                color: $c_pink-dark;
+                                display: block;
+                            }
+                            &.label-top {
+                                display: block;
+                            }
+                            &.label-bottom {
+                                display: none;
+                            }
+                        }
+                        .title {
+                            margin-top: 20px;
+                            text-align: center;
+                        }
+                        .price {
+                            text-align: center;
+                            margin: 10px 0 0;
+                        }
+                        .button-box-info {
+                            text-align: center;
+                        }
+                        .button-box-buy {
+                            text-align: center;
+                        }
+                    }
+                    .swiper-button {
+                        top: auto;
+                        bottom: 20px;
+                        &.swiper-button-prev {
+                            left: calc(50% - (20px + 10px);
+                            right: auto;
+                        }
+                        &.swiper-button-next {
+                            left: auto;
+                            right: calc(50% - (20px + 10px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include media-breakpoint-only (sm) {
+        .region-content-top {
+            #block-views-block-front-actions {
+                /*.view-front-actions {
+                    .swiper-container .swiper-wrapper .swiper-slide {
+                        padding-bottom: 85px;
+                        .img {
+                            margin: 0 0 25px 0;
+                            width: 100%;
+                        }
+                        .label {
+                            margin: 0 0 25px;
+                            background: none;
+                            &:before {
+                                font-family: 'Roboto Condensed Light', sans-serif;
+                                content: 'Акция';
+                                font-size: 43px;
+                                color: $c_pink-dark;
+                                display: block;
+                            }
+                            &.label-top {
+                                display: block;
+                            }
+                            &.label-bottom {
+                                display: none;
+                            }
+                        }
+                        .title {
+                            margin-top: 20px;
+                            text-align: center;
+                        }
+                        .price {
+                            text-align: center;
+                            margin: 10px 0 0;
+                        }
+                        .button-box-info {
+                            text-align: center;
+                        }
+                        .button-box-buy {
+                            text-align: center;
+                        }
+                    }
+                    .swiper-button {
+                        top: auto;
+                        bottom: 20px;
+                        &.swiper-button-prev {
+                            left: calc(50% - (20px + 10px);
+                            right: auto;
+                        }
+                        &.swiper-button-next {
+                            left: auto;
+                            right: calc(50% - (20px + 10px);
+                        }
+                    }
+                }*/
+            }
+        }
+    }
     @include media-breakpoint-only (md) {}
     @include media-breakpoint-up (lg) {
         .region-content-top {
@@ -1189,22 +1561,176 @@ body.node--type-present,
 body.node--type-composition,
 body.node--type-product-bouquet,
 body.node--type-product-flowers {
+    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
+        color: white;
+    }
+
+    h1.page-title {
+        margin-top: 35px;
+    }
+
     .region-content-top {
         display: none;
     }
+
+    article.node {
+        margin-top: 20px;
+
+        .field--name-field-photo,
+        .field--name-field-photo-bouquet,
+        .field--name-field-photo-present,
+        .field--name-field-photo-composition {
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            float: none;
+            .slider {
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+                &.thumbs-container {
+                    float: left;
+                    //margin-right: 30px;
+                    width: calc(108px + 20px); //img width + right padding
+                    padding-right: 20px;
+                    height: 510px;
+
+                    .slide-thumbs {
+                        margin-bottom: 5px;
+                        height: 108px;
+                        border: 4px solid transparent;
+                        background-color: white;
+                        transition: $transition;
+                        &.active {
+                            transition: $transition;
+                            border-color: $c_silver_light;
+                        }
+                    }
+                    &.hide {
+                        display: none;
+                    }
+                }
+                &.main-container {
+                    width: calc(100% - (108px + 20px + 30px)); //thumbs container width + right padding
+                    margin-bottom: 50px;
+                    float: left;
+                    &.one-pic {
+                        width: 100%;
+                        .slide-thumbs {
+                            height: 400px;
+                            background-color: white;
+                        }
+                    }
+                    .slide {
+                        display: none;
+                        overflow: hidden;
+                        height: 400px;
+                        background-color: white;
+                        &:first-of-type {
+                            display: block;
+                        }
+                        &.active {
+                            border: 1px solid red;
+                        }
+                    }
+                }
+            }
+        }
+
+        .field--name-field-price-flower,
+        .field--name-field-price-bouquet,
+        .field--name-field-price-present,
+        .field--name-field-price-composition {
+            color: $c_pink-dark;
+            font-size: 44px;
+            font-weight: bold;
+            margin-top: -7px;
+            .rouble {
+                text-transform: uppercase;
+                font-size: 26px;
+                color: $c_silver;
+            }
+        }
+
+        #block-button-payment {
+            margin-top: 5px;
+            margin-bottom: 50px;
+            p a.btn.payment {
+                position: relative;
+                z-index: 3;
+                font-weight: bold;
+            }
+        }
+
+        .field--name-body p {
+            font-size: 20px;
+        }
+
+        #block-payment-type {
+            margin-top: 50px;
+            h2 {
+                font-size: 21px;
+                //color: $c_gray;
+                text-transform: uppercase;
+            }
+            .text-formatted ul {
+                padding: 0;
+                margin: 0;
+                li {
+                    font-size: 18px;
+                    padding-left: 10px;
+                    list-style: none;
+                    list-style-type: none;
+                    &:before {
+                        content: '—';
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+
+        .field--name-field-taxonomy-bouquet-fowers {
+            .field__label {
+                font-size: 18px;
+                color: $c_gray;
+                text-transform: uppercase;
+            }
+        }
+    }
+
     .region-content-bottom {
         padding: 45px 0 65px;
-        margin-top: 50px;
+        margin-top: 53px;
         margin-bottom: -40px;
         background-color: $c_silver_light;
         #block-services {
             width: 100%;
             h2.block-title {
-                font-size: 26px;
+                font-size: 30px;
                 text-align: center;
                 color: $c_green_dark;
                 text-transform: uppercase;
-                margin-bottom: 30px;
+                margin-bottom: 50px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 120px;
+                    height: 56px;
+                    margin: 0 10px -18px 0;
+                    background: url('../img/decor-left_product-bottom.png') top right no-repeat;
+                }
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 109px;
+                    height: 56px;
+                    margin: 0 0 -18px 10px;
+                    background: url('../img/decor-right_product-bottom.png') top left no-repeat;
+                }
             }
             .field--name-body {
                 ul {
@@ -1329,121 +1855,8 @@ body.node--type-product-flowers {
 
         }
     }
-
-    #block-button-payment {
-        p a.btn.payment {
-            position: relative;
-            z-index: 3;
-        }
-        margin-top: 10px;
-        margin-bottom: 50px;
-    }
-    #block-payment-type {
-        margin-top: 50px;
-        h2 {
-            font-size: 18px;
-            color: $c_gray;
-            text-transform: uppercase;
-        }
-        .content ul {
-            padding: 0;
-            margin: 0;
-            li {
-                padding-left: 10px;
-                list-style: none;
-                &:before {
-                    content: '—';
-                    padding-right: 10px;
-                }
-            }
-        }
-    }
-    .slider {
-        img {
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        &.thumbs-container {
-            float: left;
-            //margin-right: 30px;
-            width: 108px;
-            height: 510px;
-
-            .slide-thumbs {
-                margin-bottom: 5px;
-                height: 108px;
-                border: 4px solid transparent;
-                background-color: white;
-                &.active {
-                    border-color: $c_silver_light;
-                }
-            }
-            &.hide {
-                display: none;
-            }
-        }
-        &.main-container {
-            width: calc(100% - (100px + 30px));
-            margin-bottom: 50px;
-            float: left;
-            &.one-pic {
-                width: 100%;
-                .slide-thumbs {
-                    height: 400px;
-                    background-color: white;
-                }
-            }
-            .slide {
-                display: none;
-                overflow: hidden;
-                height: 400px;
-                background-color: white;
-                &:first-of-type {
-                    display: block;
-                }
-                &.active {
-                    border: 1px solid red;
-                }
-            }
-        }
-    }
-
-    .field--name-field-photo,
-    .field--name-field-photo-bouquet,
-    .field--name-field-photo-present,
-    .field--name-field-photo-composition {
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        float: none;
-    }
-
-    .field--name-field-price-flower,
-    .field--name-field-price-bouquet,
-    .field--name-field-price-present,
-    .field--name-field-price-composition {
-        color: $c_pink-dark;
-        font-size: 44px;
-        font-weight: bold;
-        .rouble {
-            text-transform: uppercase;
-            font-size: 26px;
-            color: $c_silver;
-        }
-    }
-
-    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
-        color: white;
-    }
-    .field--name-field-taxonomy-bouquet-fowers {
-        .field__label {
-            font-size: 18px;
-            color: $c_gray;
-            text-transform: uppercase;
-        }
+    footer .region-footer-first ul.nav.navbar-nav li a[href$='/catalog'] {
+        color: $c_black;
     }
 }
 
@@ -1454,6 +1867,9 @@ body.node--type-present {
     }
     #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(3) a {
         color: white;
+    }
+    footer .region-footer-first ul.nav.navbar-nav li a[href$='/presents'] {
+        color: $c_black;
     }
 }
 
@@ -1534,8 +1950,19 @@ body.page-node-111 {
 
 //Страницы - Оформление праздников
 body.page-node-14 {
-    .field--name-body p strong {
-        color: $c_green_dark;
+    .field--name-body {
+        p {
+            font-size: 20px;
+            strong {
+                color: $c_green_dark;
+            }
+            &.phone-txt {
+                font-size: 36px;
+            }
+        }
+        ul li {
+            font-size: 20px;
+        }
     }
     .field--name-field-picture {
         display: flex;
@@ -1570,8 +1997,58 @@ body.page-node-14 {
     }
 }
 
+//Страницы - Оплата и доставка
+body.page-node-3 {
+    .field--name-body {
+        p {
+            font-size: 20px;
+        }
+        ul li {
+            font-size: 20px;
+        }
+    }
+}
+
+//Страницы - О нас
+body.page-node-1 {
+    .portret_Lena {
+        background: url('../img/portret_Lena.jpg') no-repeat center;
+        background-size: contain;
+        width: auto;
+        height: 300px;
+    }
+    .field--name-body {
+        p {
+            font-size: 20px;
+        }
+        .address {
+            margin: 0;
+            padding: 3px 0 0;
+            display: inline-block;
+            font-size: 20px;
+            color: $c_gray;
+            text-decoration: none;
+            border-bottom: dashed 1px;
+            cursor: pointer;
+            transition: $transition;
+            &:hover {
+                color: $c_black;
+                transition: $transition;
+            }
+        }
+    }
+}
+
 //Страницы - Контакты
 body.page-node-2 {
+    .field--name-body {
+        p {
+            font-size: 20px;
+        }
+        ul li {
+            font-size: 20px;
+        }
+    }
     .contact-line {
         .contact-label {
             //font-weight: bold;
@@ -1589,31 +2066,5 @@ body.page-node-2 {
         background-size: cover;
         width: 100%;
         height: 500px;
-    }
-}
-
-//Страницы - О нас
-body.page-node-1 {
-    .portret_Lena {
-        background: url('../img/portret_Lena.jpg') no-repeat center;
-        background-size: contain;
-        width: auto;
-        height: 300px;
-    }
-    .field--name-body {
-        .address {
-            margin: 0;
-            padding: 0;
-            font-size: 13px;
-            color: $c_gray;
-            text-decoration: none;
-            border-bottom: dashed 1px;
-            cursor: pointer;
-            transition: $transition;
-            &:hover {
-                color: $c_black;
-                transition: $transition;
-            }
-        }
     }
 }

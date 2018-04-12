@@ -20,26 +20,28 @@
       <h3>{{ title }}</h3>
     {% endif %}
 
-    <div class="col-12">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                {% for row in rows %}
-                  {%
-                    set row_classes = [
-                        'swiper-slide',
-                         default_row_class ? 'views-row',
-                    ]
-                  %}
-                  <div{{ row.attributes.addClass(row_classes) }}>
-                    {{ row.content }}
-                  </div>
-                {% endfor %}
+    <div class="row">
+        <div class="col-12">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for row in rows %}
+                      {%
+                        set row_classes = [
+                            'swiper-slide',
+                             default_row_class ? 'views-row',
+                        ]
+                      %}
+                      <div{{ row.attributes.addClass(row_classes) }}>
+                        {{ row.content }}
+                      </div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-        <div class="swiper-button swiper-button-prev">
-            <span></span>
-        </div>
-        <div class="swiper-button swiper-button-next">
-            <span></span>
+            <div class="swiper-button swiper-button-prev">
+                <span></span>
+            </div>
+            <div class="swiper-button swiper-button-next">
+                <span></span>
+            </div>
         </div>
     </div>
