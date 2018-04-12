@@ -731,7 +731,7 @@ footer {
             width: 100%;
             float: none;
             .block .field--name-body {
-                p.developer  {
+                p  {
                     text-align: center;
                 }
             }
@@ -744,8 +744,8 @@ footer {
                         float: none;
                     }
                 }
-                p,
-                p a {
+                p.developer,
+                p.developer a {
                     text-align: center;
                     font-size: 14px;
                 }
@@ -788,8 +788,9 @@ footer {
                 width: 40%;
                 float: right;
                 padding-top: 30px;
-                p,
-                p a {
+                p.developer,
+                p.developer a {
+                    text-align: center;
                     font-size: 14px;
                 }
             }
