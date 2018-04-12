@@ -732,22 +732,25 @@ footer {
             float: none;
             .block .field--name-body {
                 p {
-                    text-align: left;
-                }
-                ul li {
-                    float: left;
+                    text-align: center;
                 }
             }
 
 
             .additional-info {
-        /*        width: 40%;
-                float: right;
-                padding-top: 27px;
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    li {
+                        float: none;
+                    }
+                }
                 p,
                 p a {
+                    text-align: center;
                     font-size: 14px;
-                }*/
+                }
             }
         }
     }
@@ -786,7 +789,7 @@ footer {
             .additional-info {
                 width: 40%;
                 float: right;
-                padding-top: 27px;
+                padding-top: 30px;
                 p,
                 p a {
                     font-size: 14px;
