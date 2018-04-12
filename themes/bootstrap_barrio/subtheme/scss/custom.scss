@@ -660,7 +660,7 @@ footer {
 
                     }
                 }
-                .additional-links {
+                .additional-info {
                     ul {
                         overflow: hidden;
                         padding: 0;
@@ -698,6 +698,7 @@ footer {
                         }
                     }
                     p {
+                        text-align: right;
                         a {
                             font-size: 16px;
                         }
@@ -798,8 +799,12 @@ footer {
                 }
             }
 
-            .additional-links {
-                width: 30%;
+            .main-info {
+                width: 60%;
+                float: left;
+            }
+            .additional-info {
+                width: 40%;
                 float: right;
             }
         }
