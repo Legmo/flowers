@@ -738,6 +738,17 @@ footer {
                     float: left;
                 }
             }
+
+
+            .additional-info {
+        /*        width: 40%;
+                float: right;
+                padding-top: 27px;
+                p,
+                p a {
+                    font-size: 14px;
+                }*/
+            }
         }
     }
     @include media-breakpoint-only (sm) {
@@ -765,6 +776,20 @@ footer {
                 }
                 ul li {
                     float: left;
+                }
+            }
+
+            .main-info {
+                width: 60%;
+                float: left;
+            }
+            .additional-info {
+                width: 40%;
+                float: right;
+                padding-top: 27px;
+                p,
+                p a {
+                    font-size: 14px;
                 }
             }
         }
@@ -806,6 +831,11 @@ footer {
             .additional-info {
                 width: 40%;
                 float: right;
+                padding-top: 27px;
+                p,
+                p a {
+                    font-size: 14px;
+                }
             }
         }
     }
