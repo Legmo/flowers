@@ -697,8 +697,8 @@ footer {
                             }
                         }
                     }
-                    p {
-                        text-align: right;
+                    p{
+                        //text-align: right;
                         a {
                             font-size: 16px;
                         }
@@ -731,12 +731,10 @@ footer {
             width: 100%;
             float: none;
             .block .field--name-body {
-                p {
+                p.developer  {
                     text-align: center;
                 }
             }
-
-
             .additional-info {
                 ul {
                     display: flex;
