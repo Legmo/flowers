@@ -697,11 +697,10 @@ footer {
                             }
                         }
                     }
-                    p{
-                        //text-align: right;
-                        a {
-                            font-size: 16px;
-                        }
+                    p.developer,
+                    p.developer a {
+                        font-size: 14px;
+
                     }
                 }
             }
@@ -775,9 +774,6 @@ footer {
                 p {
                     text-align: left;
                 }
-                ul li {
-                    float: left;
-                }
             }
 
             .main-info {
@@ -788,10 +784,12 @@ footer {
                 width: 40%;
                 float: right;
                 padding-top: 30px;
+                ul li {
+                    float: left;
+                }
                 p.developer,
                 p.developer a {
-                    text-align: center;
-                    font-size: 14px;
+                    text-align: right;
                 }
             }
         }
@@ -821,9 +819,6 @@ footer {
                 p {
                     text-align: left;
                 }
-                ul li {
-                    float: left;
-                }
             }
 
             .main-info {
@@ -834,9 +829,12 @@ footer {
                 width: 40%;
                 float: right;
                 padding-top: 27px;
-                p,
-                p a {
-                    font-size: 14px;
+                ul li {
+                    float: left;
+                }
+                p.developer,
+                p.developer a {
+                    text-align: right;
                 }
             }
         }
