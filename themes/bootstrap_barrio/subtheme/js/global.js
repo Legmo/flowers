@@ -8,6 +8,28 @@
   Drupal.behaviors.bootstrap_barrio_subtheme = {
     attach: function (context, settings) {
 
+        //Search for the header menu
+        var formWrapper = $('#header .navigation-line .search-block-form .search-wrapper');
+        var formInput   = $('#header .navigation-line .search-block-form .search-wrapper input.form-search');
+        var formButton  = $('#header .navigation-line .search-block-form .search-wrapper .form-submit');
+
+        $(formButton).once('searchClick').click(function(e){
+            if ($(formWrapper).hasClass('small')) {
+                console.log('show');
+                $(formWrapper).removeClass('small');
+                e.preventDefault();
+            } else {
+                if($(formInput).val() == ''){
+                    console.log('hide');
+                    $(formWrapper).addClass('small');
+                    e.preventDefault();
+                }
+                else {
+                    console.log('redirect');
+                }
+            }
+        });
+
         //Swiper slider for Frontpage Actions
         var swiperActions = new Swiper('body.path-frontpage .view-front-actions .swiper-container', {
             effect: 'fade',

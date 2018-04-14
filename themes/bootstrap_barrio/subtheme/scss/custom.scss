@@ -65,7 +65,10 @@ h1 {
     color: $c_pink-dark;
     font-size: 40px;
     line-height: 1;
-
+    &.page-title {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
     @media screen and (max-width: 575.99px) {
         font-size: 34px;
     }
@@ -82,12 +85,13 @@ h2 {
 }
 h3 {
     color: $c_pink-dark;
+    font-size: 25px;
 
     @media screen and (max-width: 575.99px) {
-        font-size: 25px;
+        font-size: 20px;
     }
     @include media-breakpoint-only (sm) {
-        font-size: 30px;
+        font-size: 25px;
     }
 }
 
@@ -116,14 +120,14 @@ a.btn.payment {
     color: $c_green_dark;
     line-height: 1;
 }
-.view ul.pagination {
+ul.pagination {
     width: 285px;
     margin: 0 auto;
-    li {
+    li.page-item {
         a {
             color: $c_green_dark;
         }
-        &.active a {
+        &.active a.page-link {
             border-color: $c_green;
             background-color: $c_green;
             color: white;
@@ -399,9 +403,10 @@ a.btn.payment {
                     width: 100%;
                 }
                 nav.menu--main {
-                    display: block;
-                    padding-right: 30px;
+                    display: inline-block;
+                    //padding-right: 30px;
                     text-align: right;
+                    width: 100%;
                     ul {
                         display: flex;
                         justify-content: space-between;
@@ -419,7 +424,6 @@ a.btn.payment {
                                     cursor: default;
                                 }
                             }
-
                             &:first-of-type a {
                                 padding-left: 0;
                             }
@@ -427,18 +431,63 @@ a.btn.payment {
                     }
                 }
             }
-            .search-block-form {
-
-                display: none;
+            .page_search .search-block-form {
                 float: right;
-                margin-top: -5px;
+                margin-top: -1px;
+                position: relative;
+                width: 45px;
                 h2 {
                     display: none;
                 }
-                form.search-form {
-                    overflow: hidden;
-                    .js-form-item {
-                        float: left;
+                .content {
+                    width: 100%;
+                    form.search-form {
+                        width: 100%;
+                        fieldset.js-form-item {
+                            position: absolute;
+                            z-index: 5;
+                            right: 45px;
+                            float: left;
+                            width: calc((100vw/2) - 45px);//100% - button width
+                            padding-left: 20px;
+                            background-color: $c_pink-dark;
+                            margin-bottom: 0;
+                            opacity: 1;
+                            height: auto;
+                            overflow: hidden;
+                            transition: opacity 0.4s ease-out;;
+                            input.form-search {
+                                //box-shadow: none;
+                                //width: 100%;
+                                //position: relative;
+                                //right: 0;
+                                transition: $transition;
+                            }
+                        }
+                        .form-actions button.btn.form-submit {
+                            height: 35px;
+                            width: 45px;
+                            border: 0;
+                            box-shadow: none;
+                            margin: 0;
+                            padding: 0;
+                            text-indent: -999999px;
+                            background: url('../img/icon_search-small.png') no-repeat right center;
+                            opacity: 0.8;
+                            transition: $transition;
+                            &:hover {
+                                opacity: 1;
+                                transition: $transition;
+                            }
+                        }
+                    }
+                }
+                .small {
+                    .content form.search-form fieldset.js-form-item {
+                        //width: 0;
+                        opacity: 0;
+                        height: 0;
+                        transition: opacity 0.4s ease-out;;
                     }
                 }
             }
@@ -482,6 +531,7 @@ a.btn.payment {
             }
         }
         .navigation-line #navbar-main {
+            position: relative;
             button.navbar-toggler {
                 display: inline-block;
             }
@@ -495,6 +545,20 @@ a.btn.payment {
                         font-size: 22px;
                         padding: 8px 0;
                         line-height: 1;
+                    }
+                }
+            }
+            .page_search {
+                position: absolute;
+                top: 2px;
+                right: 0;
+                .search-block-form .content form.search-form fieldset.js-form-item {
+                    width: calc((100vw - (80px + 45px));//100% - (menu button width + search button width)
+                    padding-left: 10px;
+                    input.form-search {
+                        margin-top: 2px;
+                        padding-top: 4px;
+                        padding-bottom: 4px;
                     }
                 }
             }
@@ -553,6 +617,20 @@ a.btn.payment {
                     }
                 }
             }
+            .page_search {
+                position: absolute;
+                top: 2px;
+                right: 0;
+                .search-block-form .content form.search-form fieldset.js-form-item {
+                    width: calc((100vw - (170px + 45px));//100% - (menu button width + search button width)
+                    padding-left: 10px;
+                    input.form-search {
+                        margin-top: 2px;
+                        padding-top: 4px;
+                        padding-bottom: 4px;
+                    }
+                }
+            }
         }
     }
     @include media-breakpoint-only (md) {
@@ -591,12 +669,12 @@ a.btn.payment {
             }
         }
         .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li a {
-            font-size: 15px;
+            font-size: 16px;
         }
     }
     @include media-breakpoint-only (lg) {
         .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li a {
-            font-size: 18px;
+            font-size: 22px;
         }
     }
     @include media-breakpoint-only (xl) {
@@ -1851,82 +1929,6 @@ body.node--type-present {
         color: $c_black;
     }
 }
-
-//Страницы - Поддтверждение заказа + On-line оплата
-body.page-node-111,
-body.page-node-110 {
-    .step-standart,
-    .step-payment {
-        display: none;
-    }
-    .btn {
-        display: inline-block;
-        padding: 13px 35px;
-        border-radius: 6px;
-        color: white;
-        font-size: 20px;
-        text-transform: uppercase;
-        background-color: #8e9f45;
-        transition: all 0.4s ease-out;
-        &:hover {
-            color: white;
-            background-color: $c_green_light;
-            transition: $transition;
-        }
-    }
-    form.payment-form {
-            margin-bottom: 30px;
-            .for-item {
-                margin-bottom: 10px;
-                &.phone,
-                &.price,
-                &.number,
-                &.comment {
-                    label {
-                        width: 160px;
-                        text-align: right;
-                        padding-right: 10px;
-                    }
-                    input {
-                        padding-left: 5px;
-                        padding-right: 5px;
-                    }
-                }
-                &.price {
-                    span {
-                        color: gray;
-                        font-size: 14px;
-                        &.payment-comment {
-                            padding-left: 10px;
-                        }
-                    }
-                }
-                &.radio-buttons {
-                    div {
-                        margin-left: 160px;
-                        label {
-                            padding-left: 10px;
-                        }
-                    }
-                    div.block-label {
-                        margin-left: 0;
-                        width: 160px;
-                        padding-right: 10px;
-                        text-align: right;
-                    }
-                }
-            }
-            input.btn {
-                margin-left: 160px;
-            }
-        }
-}
-body.page-node-111 {
-    h1.page-title {
-        display: none;
-    }
-}
-
 //Страницы - Оформление праздников
 body.page-node-14 {
     .field--name-body p {
@@ -2049,6 +2051,166 @@ body.page-node-2 {
     @include media-breakpoint-only (xl) {
         #contact-map-pic {
             background-size: cover;
+        }
+    }
+}
+
+//Страницы - Подтверждение заказа + On-line оплата
+body.page-node-111,
+body.page-node-110 {
+    .step-standart,
+    .step-payment {
+        display: none;
+    }
+    .btn {
+        display: inline-block;
+        padding: 13px 35px;
+        border-radius: 6px;
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color: #8e9f45;
+        transition: all 0.4s ease-out;
+        &:hover {
+            color: white;
+            background-color: $c_green_light;
+            transition: $transition;
+        }
+    }
+    form.payment-form {
+        margin-bottom: 30px;
+        .for-item {
+            margin-bottom: 10px;
+            &.phone,
+            &.price,
+            &.number,
+            &.comment {
+                label {
+                    width: 160px;
+                    text-align: right;
+                    padding-right: 10px;
+                }
+                input {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+            &.price {
+                span {
+                    color: gray;
+                    font-size: 14px;
+                    &.payment-comment {
+                        padding-left: 10px;
+                    }
+                }
+            }
+            &.radio-buttons {
+                div {
+                    margin-left: 160px;
+                    label {
+                        padding-left: 10px;
+                    }
+                }
+                div.block-label {
+                    margin-left: 0;
+                    width: 160px;
+                    padding-right: 10px;
+                    text-align: right;
+                }
+            }
+        }
+        input.btn {
+            margin-left: 160px;
+        }
+    }
+}
+body.page-node-111 {
+    h1.page-title {
+        display: none;
+    }
+}
+
+//Страницы - Результаты поиска
+body.path-search {
+    main#content form#search-form {
+        margin-bottom: 15px;
+        fieldset.js-form-item {
+            width: 50%;
+            display: inline-block;
+            label {
+                color: $c_gray;
+            }
+        }
+        button.btn.form-submit {
+            margin-top: -4px;
+            display: inline-block;
+            margin-left: 3px;
+            padding: 6px 20px;
+            border-radius: 6px;
+            color: white;
+            font-size: 18px;
+            border: 0;
+            box-shadow: none;
+            text-transform: uppercase;
+            background-color: $c_green;
+            transition: $transition;
+            &:hover {
+                color: white;
+                background-color: $c_green_light;
+                transition: $transition;
+            }
+        }
+        a#edit-help-link {
+            display: none;
+        }
+    }
+    ol.search-results {
+        padding-top: 10px;
+        li {
+            color: $c_pink-dark;
+            border-bottom: 0;
+            padding-bottom: 10px;
+            font-size: 21px;
+            h3.search-result__title {
+                display: inline;
+                a {
+                    color: inherit;
+                    font-weight: normal;
+                }
+            }
+            .search-result__snippet-info p {
+                color: $c_black;
+                padding-top: 5px;
+                margin-bottom: 0;
+                font-size: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 575.99px) {
+        main#content form#search-form {
+            fieldset.js-form-item {
+                width: calc(100% - 110px); //100% - button width
+            }
+        }
+        ol.search-results li {
+            font-size: 18px;
+            .search-result__snippet-info p {
+                font-size: 18px;
+            }
+        }
+    }
+    @include media-breakpoint-only (sm) {
+        main#content form#search-form {
+            fieldset.js-form-item {
+                width: calc(100% - 110px); //100% - button width
+            }
+        }
+        ol.search-results li {
+            font-size: 22px;
+            .search-result__snippet-info p {
+                font-size: 18px;
+            }
         }
     }
 }

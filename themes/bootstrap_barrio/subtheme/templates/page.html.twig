@@ -81,7 +81,7 @@
                 <div class="col-12">
                     <nav{{ navbar_attributes.removeClass('navbar-expand-sm').addClass('navbar-expand-md') }}>
                           {% endif %}
-                            {% if page.primary_menu or page.header_form %}
+                            {% if page.primary_menu or page.header_form or page.header_search %}
                               <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                               <div class="collapse navbar-collapse" id="CollapsingNavbar">
                                 {{ page.primary_menu }}
@@ -90,6 +90,9 @@
                                     {{ page.header_form }}
                                   </div>
                                 {% endif %}
+                              </div>
+                              <div class="page_search">
+                                {{ page.header_search }}
                               </div>
                             {% endif %}
                             {% if sidebar_collapse %}
