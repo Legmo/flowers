@@ -23,6 +23,17 @@
     font-style: normal;
 }
 
+//Символ рубля
+@font-face {
+    font-family: rouble;
+    src: url('../fonts/rouble.ttf');
+}
+.rouble {
+    font-weight: normal;
+    color: $c_silver_light-1;
+    font: 28px rouble, Arial, sans-serif;
+}
+
 //Типографика
 body {
     font-family: 'Roboto Condensed Light', sans-serif;
@@ -99,13 +110,6 @@ a.btn.payment {
         background-color: $c_green_light;
         transition: $transition;
     }
-}
-.rouble {
-    font-weight: normal;
-    color: $c_silver;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-family: 'Roboto Condensed Light', sans-serif;
 }
 .phone-txt {
     font-size: 36px;
@@ -217,7 +221,7 @@ a.btn.payment {
     }
 
     &.open {
-        border-color: $c_silver_light;
+        border-color: $c_silver_light-2;
         border-bottom: 0;
         .bottom-inf {
             left: -10px;
@@ -226,7 +230,7 @@ a.btn.payment {
             transition: $transition;
 
             z-index: 3;
-            border-color: $c_silver_light;
+            border-color: $c_silver_light-2;
             border-top: 0;
             &:hover a.btn.more-info {
                 transition: $transition;
@@ -1118,7 +1122,7 @@ body.path-frontpage {
         }
         #block-front-about {
             margin-bottom: 30px;
-            background-color: $c_silver_light;
+            background-color: $c_silver_light-2;
             padding: 0 25px 25px;
             .info-left {
                 padding: 5px 30px 0 0;
@@ -1581,7 +1585,7 @@ body.node--type-product-flowers {
                         transition: $transition;
                         &.active {
                             transition: $transition;
-                            border-color: $c_silver_light;
+                            border-color: $c_silver_light-2;
                         }
                     }
                     &.hide {
@@ -1673,7 +1677,7 @@ body.node--type-product-flowers {
     }
 
     .region-content-bottom {
-        background-color: $c_silver_light;
+        background-color: $c_silver_light-2;
         padding: 45px 0 65px;
         margin: 53px auto 0;
         width: calc(100% + (15px*2)); //compensate 15px paddings @include adaptive_paddings; from #main-wrapper
@@ -1733,7 +1737,7 @@ body.node--type-product-flowers {
                                 width: 146px;
                                 height: 146px;
                                 border-radius: 50%;
-                                background-color: $c_silver_light;
+                                background-color: $c_silver_light-2;
                             }
                             .circle-inner {
                                 display: block;
