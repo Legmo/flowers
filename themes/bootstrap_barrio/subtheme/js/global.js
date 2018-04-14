@@ -12,9 +12,9 @@
         var swiperActions = new Swiper('body.path-frontpage .view-front-actions .swiper-container', {
             effect: 'fade',
             slidesPerView: 1,
-            loop: true,
+            //loop: true,
             autoplay: {
-                delay: 4000,
+                delay: 5000,
             },
             navigation: {
                 nextEl: '.swiper-button-next',

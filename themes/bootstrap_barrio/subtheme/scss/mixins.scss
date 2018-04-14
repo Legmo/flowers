@@ -1,7 +1,7 @@
 @import "../../../../libraries/bootstrap/scss/mixins";
 @import "../../../../libraries/bootstrap/scss/variables";
 
-// Adaptability marker:
+// Adaptive marker:
 //----------------------------------------
 @mixin adaptive_marker($color, $txt) {
     content: $txt;
@@ -45,5 +45,18 @@ body {
         @include media-breakpoint-only(xl) {
             @include adaptive_marker(silver, "xl");
         }
+    }
+}
+
+//Adaptive paddings:
+//----------------------------------------
+@mixin adaptive_paddings() {
+    @include media-breakpoint-between(sm, lg) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @include media-breakpoint-only(xl) {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
