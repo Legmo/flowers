@@ -922,6 +922,54 @@ footer.site-footer {
     }
 }
 
+//Боковая колонка
+body.layout-sidebar-first {
+    #main .container-wrap {
+        @include adaptive_paddings;
+    }
+    .sidebar .block {
+        padding: 0;
+        border: 0;
+        &.navigation {
+            ul.nav {
+                li.nav-item {
+                    width: 100%;
+                    a {
+                        padding-left: 0;
+                        text-decoration: underline;
+                        color: $c_green;
+                        &.bef-link-active,
+                        &.active {
+                            color: $c_black;
+                            cursor: pointer;
+                            text-decoration: none;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            &.menu--catalog-flowers,
+            &.menu--catalog-presents {
+                ul.nav li.nav-item {
+                    > a {
+                        text-transform: uppercase;
+
+                    }
+                    a {
+                        font-size: 18px;
+                    }
+                    &:first-of-type > a {
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 //Вспывающие окна
 #contact-map {
     margin-top: 30px;
@@ -1527,17 +1575,236 @@ body.path-frontpage {
 
 //Страницы - Каталог (цветы, подарки)
 body.path-catalog,
-body.path-presents {
+body.path-catalog-bouqet,
+body.path-catalog-composition,
+body.path-catalog-flower,
+body.path-catalog-presents,
+body.path-catalog-presents-toys,
+body.path-catalog-presents-cards,
+body.path-catalog-presents-balloons {
+    .region-content-top #block-pagetitle {
+        padding: 0 15px 20px;
+    }
+    .sidebar {
+        .block.views-exposed-form form > div {
+            padding-left: 20px;
+        }
+        fieldset.js-form-item {
+            label {
+                display: none;
+            }
+            div.bef-links a {
+                text-decoration: underline;
+                color: $c_green;
+                &.bef-link-active {
+                    color: $c_black;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        .sorting-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            fieldset.js-form-item.js-form-item-sort-by,
+            fieldset.js-form-item.js-form-item-sort-order {
+                width: auto;
+                display: inline-block;
+                p.label-sort {
+                    padding-top: 15px;
+                    font-size: 18px;
+                    margin-bottom: 5px;
+                }
+                .form-select.bef-links {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: left;
+                    > div {
+                        width: auto;
+                        a {
+                            display: block;
+                            height: 28px;
+                            padding: 3px 10px;
+                            border-radius: 4px;
+                            color: white;
+                            font-size: 13px;
+                            text-transform: none;
+                            text-decoration: none;
+                            background-color: $c_silver;
+                            transition: $transition;
+                            &:hover {
+                                color: white;
+                                background-color: $c_gray;
+                                transition: $transition;
+                            }
+                            &.bef-link-active {
+                                background-color: $c_green_light;
+                                cursor: default;
+                                &:hover {
+                                    background-color: $c_green_light;
+                                }
+                            }
+                            &:first-of-type {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            fieldset.js-form-item.js-form-item-sort-order {
+                padding-top: 42px;
+                .form-select.bef-links {
+                    justify-content: right;
+                    > div {
+                        a {
+                            text-indent: -100000px;
+                            width: 28px;
+                            border-radius: 50%;
+                            background-position: 10px center;
+                            background-repeat: no-repeat;
+                        }
+                        &:first-of-type {
+                            a {
+                                background-image: url('../img/icon_sorting_min-max.png');
+                            }
+                        }
+                        &:last-of-type {
+                            a {
+                                background-image: url('../img/icon_sorting_max-min.png');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .price-slider-block {
+            display: none;
+            position: relative;
+            &.visible {
+                display: block;
+            }
+            input.form-control {
+                font-size: 16px;
+                padding: 2px 7px;
+            }
+            .js-form-item-field-price-bouquet-value-min,
+            .js-form-item-field-price-composition-value-min {
+                padding: 0 9px;
+                label {
+                    display: block;
+                    padding-top: 15px;
+                    font-size: 18px;
+                    margin-left: -9px;
+                    margin-bottom: 5px;
+                }
+                input.form-control {
+                    max-width: 55px;
+                    margin-left: -9px;
+                }
+                .bef-slider {
+                    height: 7px;
+                    margin-top: 12px;
+                    background-color: $c_silver_light-1;
+                    .ui-slider-range {
+                        background-color: $c_green_light;
+                    }
+                    .ui-slider-handle {
+                        width: 15px;
+                        margin-top: -3px;
+                        background-color: $c_green_light;
+                        border: 0;
+                    }
+                }
+            }
+            .js-form-item-field-price-bouquet-value-max,
+            .js-form-item-field-price-composition-value-max {
+                max-width: 55px;
+                position: absolute;
+                top: 42px;
+                right: 0;
+            }
+        }
+        .bottom-block {
+            .form-actions button {
+                display: block;
+                padding: 6px 10px;
+                border-radius: 4px;
+                border: 0;
+                box-shadow: none;
+                color: white;
+                font-size: 13px;
+                text-decoration: none;
+                background-color: $c_green;
+                text-transform: uppercase;
+                transition: $transition;
+                &:hover {
+                    color: white;
+                    border: 0;
+                    box-shadow: none;
+                    background-color: $c_green_light;
+                    transition: $transition;
+                }
+            }
+        }
+    }
+
+    //Скрываем элеменеты бокового меню на время работы скрипта и отображаем по окончанию
+    .sidebar {
+        //$submenu
+        .block.views-exposed-form {
+            display: none;
+            &.visible {
+                display: block;
+                //border: 4px solid red;
+            }
+        }
+        //$priceBlock
+       .bottom-block {
+            display: none;
+            &.visible {
+                display: block;
+                //border: 4px solid red;
+            }
+        }
+        //$sortBlock
+        .sorting-block {
+            display: none;
+            &.visible {
+                display: block;
+                //border: 4px solid red;
+            }
+        }
+        //$priceSlider = $('body.layout-sidebar-first #main .sidebar .js-form-item.form-type-textfield');
+        //$buttonWrap = $('body.layout-sidebar-first #main .sidebar .form-actions');
+        .js-form-item.form-type-textfield,
+        .form-actions {
+            display: none;
+        }
+        .price-slider-block .js-form-item.form-type-textfield,
+        .price-slider-block .form-actions {
+            display: block;
+            //border: 4px solid red;
+        }
+    }
+
     .view-catalog,
-    .view-presents {
+    .view-catalog-composition,
+    .view-catalog-flowers,
+    .view-presents,
+    .view-catalog-presents-toys,
+    .view-catalog-presents-cards,
+    .view-catalog-presents-balloons {
         .view-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
         .view-filters {
-            display: none;
-
+            //display: none;
             overflow: hidden;
             width: 25%;
             float: left;
@@ -1577,7 +1844,10 @@ body.path-presents {
 
     @media screen and (max-width: 575.99px) {
         .view-catalog,
-        .view-presents {
+        .view-presents,
+        .view-catalog-presents-toys,
+        .view-catalog-presents-cards,
+        .view-catalog-presents-balloons  {
             .view-content .views-row {
                 width: 100%;
             }
@@ -1585,7 +1855,10 @@ body.path-presents {
     }
     @include media-breakpoint-only (sm) {
         .view-catalog,
-        .view-presents {
+        .view-presents,
+        .view-catalog-presents-toys,
+        .view-catalog-presents-cards,
+        .view-catalog-presents-balloons  {
             .view-content .views-row {
                 width: 100%;
             }
@@ -1593,7 +1866,10 @@ body.path-presents {
     }
     @include media-breakpoint-only (md) {
         .view-catalog,
-        .view-presents {
+        .view-presents,
+        .view-catalog-presents-toys,
+        .view-catalog-presents-cards,
+        .view-catalog-presents-balloons  {
             .view-content .views-row {
                 width: calc((100% - 35px)/2);
             }
@@ -1601,7 +1877,10 @@ body.path-presents {
     }
     @include media-breakpoint-up (lg) {
         .view-catalog,
-        .view-presents {
+        .view-presents,
+        .view-catalog-presents-toys,
+        .view-catalog-presents-cards,
+        .view-catalog-presents-balloons  {
             .view-content .views-row {
                 width: calc((100% - (35px * 2))/3);
             }
@@ -1929,6 +2208,7 @@ body.node--type-present {
         color: $c_black;
     }
 }
+
 //Страницы - Оформление праздников
 body.page-node-14 {
     .field--name-body p {

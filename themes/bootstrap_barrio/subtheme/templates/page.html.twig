@@ -146,20 +146,34 @@
                             {{ page.breadcrumb }}
                           </div>
                         {% endif %}
+
                         <div class="clearfix">
-                            <main{{ content_attributes.removeClass('col')  }}>
-                              <section class="section">
-                                <a id="main-content" tabindex="-1"></a>
-                                  {{ page.content }}
-                              </section>
-                            </main>
-                          {% if page.sidebar_first %}
-                            <div{{ sidebar_first_attributes }}>
-                              <aside class="section" role="complementary">
-                                {{ page.sidebar_first }}
-                              </aside>
-                            </div>
-                          {% endif %}
+                            {% if page.sidebar_first %}
+                                <div class="row no-gutters">
+                                    <div class="col-12 col-md-2">
+                                        <div{{ sidebar_first_attributes.removeClass('col-md-3') }}>
+                                            <aside class="section" role="complementary">
+                                                {{ page.sidebar_first }}
+                                            </aside>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-10">
+                                        <main{{ content_attributes.removeClass('col')  }}>
+                                            <section class="section">
+                                                <a id="main-content" tabindex="-1"></a>
+                                                {{ page.content }}
+                                            </section>
+                                        </main>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <main{{ content_attributes.removeClass('col')  }}>
+                                    <section class="section">
+                                        <a id="main-content" tabindex="-1"></a>
+                                        {{ page.content }}
+                                    </section>
+                                </main>
+                            {% endif %}
                           {% if page.sidebar_second %}
                             <div{{ sidebar_second_attributes }}>
                               <aside class="section" role="complementary">

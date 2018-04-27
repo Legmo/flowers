@@ -30,6 +30,37 @@
             }
         });
 
+        //Left sidebar sub-menu for Catalog pages
+            //Move submenu to top (bottom active menu)
+            var submenu = $('body.layout-sidebar-first #main .sidebar .block.views-exposed-form');
+            var menuMainActive = $('body.layout-sidebar-first #main .sidebar .block.navigation ul.nav li.nav-item.menu-item--active-trail');
+            $(submenu).detach().addClass('visible').appendTo(menuMainActive);
+
+            //Move price slider to bottom (near the submit button)
+            var priceSlider = $('body.layout-sidebar-first #main .sidebar .js-form-item.form-type-textfield');
+            var buttonWrap = $('body.layout-sidebar-first #main .sidebar .form-actions');
+            $(priceSlider).once('Wrapper').wrapAll('<div class="price-slider-block"></div>');
+            $(buttonWrap).once('Wrapper2').wrap('<div class="bottom-block">');
+            $('.price-slider-block').detach().addClass('visible').prependTo('.bottom-block');
+
+            //Sorting
+            var sortTypeBlock = $('body.layout-sidebar-first #main .sidebar fieldset.js-form-item-sort-by');
+            var sortOrderBlock = $('body.layout-sidebar-first #main .sidebar fieldset.js-form-item-sort-order');
+            $('body.layout-sidebar-first #main .sidebar fieldset.form-item-sort-by').once('title').prepend('<p class="label-sort">Сортировка</p>');
+            $('body.layout-sidebar-first #main .sidebar fieldset.js-form-item-sort-by, body.layout-sidebar-first #main .sidebar  fieldset.js-form-item-sort-order').once('Wrapper3').wrapAll('<div class="sorting-block"></div>');
+
+            //Move filters to bottom
+            var priceBlock  = $('body.layout-sidebar-first #main .sidebar .bottom-block');
+            var sortBlock   = $('body.layout-sidebar-first #main .sidebar .sorting-block');
+            var sidebarMenu = $('body.layout-sidebar-first #main .sidebar nav.navigation');
+
+            if($(sortBlock).length){
+                $(sortBlock).detach().addClass('visible').appendTo(sidebarMenu);
+            }
+            if($(priceBlock).length){
+                $(priceBlock).detach().addClass('visible').appendTo(sidebarMenu);
+            }
+
         //Swiper slider for Frontpage Actions
         var swiperActions = new Swiper('body.path-frontpage .view-front-actions .swiper-container', {
             effect: 'fade',
