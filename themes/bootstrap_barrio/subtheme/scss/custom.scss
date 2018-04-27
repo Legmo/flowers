@@ -992,6 +992,11 @@ body.layout-sidebar-first {
                     }
                     a {
                         font-size: 18px;
+                        line-height: 1.1;
+                    }
+                    section div > a {
+                        display: block;
+                        padding-bottom: 10px;
                     }
                     &:first-of-type > a {
                         padding-top: 0;
@@ -1725,7 +1730,8 @@ body.path-catalog-presents-balloons {
                 padding: 2px 7px;
             }
             .js-form-item-field-price-bouquet-value-min,
-            .js-form-item-field-price-composition-value-min {
+            .js-form-item-field-price-composition-value-min,
+            .js-form-item-field-price-present-value-min {
                 padding: 0 9px;
                 label {
                     display: block;
@@ -1754,7 +1760,8 @@ body.path-catalog-presents-balloons {
                 }
             }
             .js-form-item-field-price-bouquet-value-max,
-            .js-form-item-field-price-composition-value-max {
+            .js-form-item-field-price-composition-value-max,
+            .js-form-item-field-price-present-value-max {
                 max-width: 55px;
                 position: absolute;
                 top: 42px;
@@ -1921,6 +1928,24 @@ body.path-catalog-presents-balloons {
                 width: calc((100% - (35px * 2))/3);
             }
         }
+    }
+}
+
+
+//Страницы - Каталог букетов
+body.path-catalog-bouqet {
+    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
+        color: white;
+    }
+}
+
+//Страницы - Каталог цветочных композиций
+body.path-catalog-composition {
+    #header .navigation-line #navbar-main #CollapsingNavbar nav.menu--main ul li:nth-child(2) a {
+        color: white;
+    }
+    footer.site-footer .site-footer__top .region.region-footer-first nav#block-menu-footer-full ul.nav a[href$='/catalog_composition'] {
+        color: $c_black;
     }
 }
 
