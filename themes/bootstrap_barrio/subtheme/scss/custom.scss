@@ -745,6 +745,7 @@ footer.site-footer {
                     }
                 }
                 nav#block-menu-footer-full ul.nav {
+                    padding-top: 20px;
                     flex-wrap: wrap;
                     flex-direction: row;
                     li {
@@ -1800,6 +1801,9 @@ body.path-catalog-presents-balloons {
             &.visible {
                 display: block;
                 //border: 4px solid red;
+                .form-actions {
+                    display: block;
+                }
             }
         }
         //$sortBlock
