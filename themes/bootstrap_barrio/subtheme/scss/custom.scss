@@ -2452,6 +2452,9 @@ body.page-node-2 {
         //display: inline-block;
         display: none;
     }
+    #contact-map-gis iframe {
+        width: 100%;
+    }
     #contact-map-pic {
         margin-top: 30px;
         background: url("../img/map.jpg") no-repeat top center;
