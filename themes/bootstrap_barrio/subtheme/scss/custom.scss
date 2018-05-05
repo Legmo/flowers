@@ -120,17 +120,26 @@ a.btn.payment {
     color: $c_green_dark;
     line-height: 1;
 }
+.view > nav { //Pager
+    text-align: center;
+}
 ul.pagination {
-    width: 285px;
+    //width: 285px;
+    width: auto;
     margin: 0 auto;
-    li.page-item {
-        a {
-            color: $c_green_dark;
-        }
-        &.active a.page-link {
-            border-color: $c_green;
-            background-color: $c_green;
-            color: white;
+    display: inline-block;
+    overflow: hidden;
+    li {
+        float: left;
+        &.page-item {
+            a {
+                color: $c_green_dark;
+            }
+            &.active a.page-link {
+                border-color: $c_green;
+                background-color: $c_green;
+                color: white;
+            }
         }
     }
 }
@@ -752,17 +761,19 @@ footer.site-footer {
                         display: inline-block;
                         padding: 0;
                         &:first-of-type a {
-                            padding-left: 0;
+                            //padding-left: 0;
                         }
                         &:last-of-type a {
                             padding-right: 0;
+                            margin-right: 0;
                         }
                         a {
                             transition: $transition;
                             color: $c_pink-dark;
-                            font-size: 14px;
+                            font-size: 15px;
                             text-align: center;
-                            padding: 10px 10px 0;
+                            padding: 10px 10px 0 0;
+                            margin-right: 10px;
                             &:hover {
                                 color: $c_black;
                                 transition: $transition;
@@ -855,18 +866,27 @@ footer.site-footer {
 
     @media screen and (max-width: 575.99px) {
         .site-footer__top .region {
-            &.region-footer-first ul.nav.navbar-nav {
-                flex-wrap: nowrap;
-                display: block;
-                li {
+            &.region-footer-first {
+                ul.nav.navbar-nav {
+                    flex-wrap: nowrap;
                     display: block;
-                    padding: 0 20px 0 0;
-                    a {
-                        padding-top: 10px;
-                        padding-bottom: 10px;
+                    li {
                         display: block;
-                        text-align: left;
-                        font-size: 22px;
+                        padding: 0 20px 0 0;
+                        a {
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            display: block;
+                            text-align: left;
+                            font-size: 22px;
+                        }
+                    }
+                }
+                nav#block-menu-footer-full ul.nav {
+                    li {
+                        a {
+                            font-size: 18px;
+                        }
                     }
                 }
             }
@@ -895,6 +915,15 @@ footer.site-footer {
     }
     @include media-breakpoint-only (sm) {
         .site-footer__top .region {
+            &.region-footer-first {
+                nav#block-menu-footer-full ul.nav {
+                    li {
+                        a {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
             &.region-footer-third {
                 .main-info {
                     width: 60%;
@@ -1006,7 +1035,6 @@ body.layout-sidebar-first {
         }
     }
 }
-
 
 //Вспывающие окна
 #contact-map {
@@ -1887,10 +1915,12 @@ body.path-catalog-presents-balloons {
 
     @media screen and (max-width: 575.99px) {
         .view-catalog,
+        .view-catalog-composition,
+        .view-catalog-flowers,
         .view-presents,
         .view-catalog-presents-toys,
         .view-catalog-presents-cards,
-        .view-catalog-presents-balloons  {
+        .view-catalog-presents-balloons {
             .view-content .views-row {
                 width: 100%;
             }
@@ -1898,39 +1928,70 @@ body.path-catalog-presents-balloons {
     }
     @include media-breakpoint-only (sm) {
         .view-catalog,
+        .view-catalog-composition,
+        .view-catalog-flowers,
         .view-presents,
         .view-catalog-presents-toys,
         .view-catalog-presents-cards,
-        .view-catalog-presents-balloons  {
+        .view-catalog-presents-balloons {
             .view-content .views-row {
                 width: 100%;
             }
         }
     }
     @include media-breakpoint-only (md) {
+        .sidebar .sorting-block {
+            fieldset.js-form-item.js-form-item-sort-by {
+                margin-bottom: 10px;
+            }
+            fieldset.js-form-item.js-form-item-sort-order {
+                padding-top: 0;
+            }
+        }
         .view-catalog,
+        .view-catalog-composition,
+        .view-catalog-flowers,
         .view-presents,
         .view-catalog-presents-toys,
         .view-catalog-presents-cards,
-        .view-catalog-presents-balloons  {
-            .view-content .views-row {
-                width: calc((100% - 35px)/2);
+        .view-catalog-presents-balloons {
+            .view-content {
+                .views-row {
+                    width: calc((100% - 35px)/2);
+                }
             }
         }
     }
     @include media-breakpoint-up (lg) {
+        .sidebar .sorting-block {
+            fieldset.js-form-item.js-form-item-sort-by {
+                margin-bottom: 10px;
+            }
+            fieldset.js-form-item.js-form-item-sort-order {
+                padding-top: 0;
+            }
+        }
         .view-catalog,
+        .view-catalog-composition,
+        .view-catalog-flowers,
         .view-presents,
         .view-catalog-presents-toys,
         .view-catalog-presents-cards,
-        .view-catalog-presents-balloons  {
-            .view-content .views-row {
-                width: calc((100% - (35px * 2))/3);
+        .view-catalog-presents-balloons {
+            .view-content {
+                margin-right: -35px;
+                .views-row {
+                    width: calc((100% - (35px * 3))/3);
+                    margin-right: 35px;
+                }
+                &::after {
+                    content: "";
+                    flex: auto
+                }
             }
         }
     }
 }
-
 
 //Страницы - Каталог букетов
 body.path-catalog-bouqet {
