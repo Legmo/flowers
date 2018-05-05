@@ -81,25 +81,17 @@
         var slideFirst = $('.slider.main-container .slide:first-of-type');
         var atrSrc = '';
 
+        $('.slider.thumbs-container .slide-thumbs:first-of-type').addClass('active');
 
         if (($(slide).length) > 1) {
             $('.slider.main-container').removeClass('one-pic');
             $('.slider.thumbs-container').removeClass('hide');
-            $('.slider.thumbs-container .slide-thumbs:first-of-type').addClass('active');
         }
 
         //Colorbox. Формируем ссылку на основное изображение
         function colorboxLinksAddMain() {
-            var atrHref = "";
-            if (($('.slider.thumbs-container .slide-thumbs').length) > 1) {
-                //Если у нас больше одной картинки на странице
-                atrHref = $('.slider.thumbs-container .slide-thumbs.active img').attr('src');
-            }
-            else {
-                //Если у нас одна картинка на странице
-                atrHref = $('.slider.thumbs-container .slide-thumbs img').attr('src');
-            }
-            //console.log(atrHref);
+            var atrHref = $('.slider.thumbs-container .slide-thumbs.active img').attr('src');
+            console.log(atrHref);
             $(slideFirst).prepend('<a class="colorbox gallery overflow-link" href=""></a>');
             $(slideFirst).find('a.overflow-link').attr('href', atrHref);
             //console.log('Wow!')
