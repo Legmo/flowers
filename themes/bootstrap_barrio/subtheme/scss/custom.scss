@@ -2077,6 +2077,7 @@ body.node--type-product-flowers {
             width: 100%;
             float: none;
             .slider {
+                position: relative;
                 img {
                     display: block;
                     margin: 0 auto;
@@ -2130,7 +2131,53 @@ body.node--type-product-flowers {
                         }
                     }
                 }
+
+                //Colorbox
+                a.colorbox {
+                    display: none;
+                    &.overflow-link {
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 2;
+                        width: 100%;
+                        height: 100%;
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            display: block;
+                            right: 15px;
+                            bottom: 15px;
+                            height: 32px;
+                            width: 32px;
+                            background: url('../img/icon_zoom.png') no-repeat right bottom;
+                            opacity: 0.5;
+                            transition: $transition;
+                        }
+                        &:hover {
+                            &:after {
+                                transition: $transition;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
             }
+            .slider-buttons {
+/*                 text-align: center;
+                 margin-bottom: 20px;
+                 .slider-button {
+                     display: inline-block;
+                     margin: 0 20px;
+                     height: 40px;
+                     width: 40px;
+                     background-color: silver;
+                     &.button-left {}
+                     &.button-right {}
+                 }*/
+             }
         }
 
         .field--name-field-price-flower,
@@ -2295,6 +2342,53 @@ body.node--type-product-flowers {
 
     @include media-breakpoint-only (xs) {
         article.node {
+
+            .field--name-field-photo,
+            .field--name-field-photo-bouquet,
+            .field--name-field-photo-present,
+            .field--name-field-photo-composition {
+                .slider {
+                    &.thumbs-container {
+                        //display: none;
+                        width: 100%;
+                        float: none;
+                        display: flex;
+                        flex-wrap: wrap;
+                        height: auto;
+                        justify-content: center;
+                        margin-bottom: 20px;
+                        .field__item {
+                            width: 100px;
+                            height: 100px;
+                            margin: 0 5px 10px;
+                            &:first-of-type {
+                                margin-left: 0;
+                            }
+                            &:last-of-type {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    &.main-container {
+                        width: 100%; //thumbs container width + right padding
+                        .slide {
+                            display: none;
+                            overflow: hidden;
+                            height: 400px;
+                            background-color: white;
+                            &:first-of-type {
+                                display: block;
+                            }
+                            &.active {
+                                border: 1px solid red;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
             .field--name-field-price-flower,
             .field--name-field-price-bouquet,
             .field--name-field-price-present,

@@ -75,22 +75,120 @@
             },
         });
 
-        //Slider for product page
+        //Slider (not Swiper!) for product page
         var slideThumbs = $('.slider.thumbs-container .slide-thumbs');
         var slide = $('.slider.main-container .slide');
         var slideFirst = $('.slider.main-container .slide:first-of-type');
         var atrSrc = '';
 
+
         if (($(slide).length) > 1) {
             $('.slider.main-container').removeClass('one-pic');
             $('.slider.thumbs-container').removeClass('hide');
             $('.slider.thumbs-container .slide-thumbs:first-of-type').addClass('active');
-            $(slideThumbs).on('click', function(event) {
+        }
+
+        //Colorbox. Формируем ссылку на основное изображение
+        function colorboxLinksAddMain() {
+            var atrHref = "";
+            if (($('.slider.thumbs-container .slide-thumbs').length) > 1) {
+                //Если у нас больше одной картинки на странице
+                atrHref = $('.slider.thumbs-container .slide-thumbs.active img').attr('src');
+            }
+            else {
+                //Если у нас одна картинка на странице
+                atrHref = $('.slider.thumbs-container .slide-thumbs img').attr('src');
+            }
+            //console.log(atrHref);
+            $(slideFirst).prepend('<a class="colorbox gallery overflow-link" href=""></a>');
+            $(slideFirst).find('a.overflow-link').attr('href', atrHref);
+            //console.log('Wow!')
+        }
+
+        //Colorbox. Формируем ссылки на все картинки, чтоб можно было листать галерею в Colorbox
+        function colorboxLinksAdd() {
+            if (($(slide).length) > 1) {
+                $('.slider.thumbs-container .slide-thumbs:not(.active) img').each(function (index, element) {
+                    var atrHrefNew = $(this).attr('src');
+                    $(slideFirst).prepend('<a class="colorbox gallery" href="' + atrHrefNew + '"></a>');
+                    //console.log('Yeah!')
+                });
+            }
+        }
+
+        //Colorbox. Удаляем все ссылки
+        function colorboxLinksRemove() {
+            //$(slideFirst).find('a.colorbox:not(.overflow-link)').remove();
+            $(slideFirst).find('a.colorbox').remove();
+            //console.log('Ooops!')
+        }
+
+        $('body', context).once().each(function () {
+            colorboxLinksAddMain();
+            colorboxLinksAdd();
+        });
+
+        $('a.colorbox').colorbox({rel: 'gallery'});
+
+        if (($(slide).length) > 1) {
+            $(slideThumbs).once().on('click', function(event) {
                 atrSrc = $(this).find('img').attr('src');
-                $(slideThumbs).removeClass('active')
+                $(slideThumbs).removeClass('active');
                 $(this).addClass('active');
                 $(slideFirst).find('img').attr('src', atrSrc);
+
+                //Colorbox. При клике по превью - меняем ссылку на Colorbox главной картинки
+                $(slideFirst).find('a.colorbox.overflow-link').attr('href', atrSrc);
+                colorboxLinksRemove();
+                colorboxLinksAddMain();
+                colorboxLinksAdd();
+                $('a.colorbox').colorbox({rel: 'gallery'});
             });
+
+            //Slider buttons for mobile view
+/*            var slidesQuantity = $('.slider.thumbs-container .slide-thumbs').length;
+            var indexSlideActive = $('.slider.thumbs-container .slide-thumbs.active');
+            console.log('Всего картинок: ' + slidesQuantity);
+            console.log('Активная картинка: ' + indexSlideActive.index());
+            $('.slider-buttons').removeClass('hide');
+
+            if (indexSlideActive.index() == 0) {
+                //Активна первая картинка
+                console.log('Первая');
+                $('.slider-buttons .slider-button.button-left').on('click', function(event) {
+                    console.log('Перекинуть на последнюю');
+                    $(slideThumbs).removeClass('active');
+                    console.log('Активная картинка: ' + indexSlideActive.index());
+                });
+                $('.slider-buttons .slider-button.button-right').on('click', function(event) {
+                    console.log('Вперёд');
+                    $(slideThumbs).removeClass('active');
+                    console.log('Активная картинка: ' + indexSlideActive.index());
+                });
+            }
+            else if (indexSlideActive.index() == (slidesQuantity - 1)) {
+                //Активна поледняя картинка
+                console.log('Последняя');
+                $('.slider-buttons .slider-button.button-left').on('click', function(event) {
+                    console.log('Назад');
+                    $(slideThumbs).removeClass('active');
+                    console.log('Активная картинка: ' + indexSlideActive.index());
+                });
+                $('.slider-buttons .slider-button.button-right').on('click', function(event) {
+                    console.log('Перекинуть на первую');
+                    $(slideThumbs).removeClass('active');
+                    console.log('Активная картинка: ' + indexSlideActive.index());
+                });
+            }
+            else {
+                //Активна средняя картинка
+                console.log('Средняя');
+            }
+
+            $('.slider-buttons .slider-button').on('click', function(event) {
+                $('.slider-buttons .slider-button').removeClass('disable')
+                $(this).addClass('active');
+            });*/
         }
 
         /*var swiperThumbs = new Swiper('.field--name-field-photo-bouquet .swiper-container.thumbs-container', {
