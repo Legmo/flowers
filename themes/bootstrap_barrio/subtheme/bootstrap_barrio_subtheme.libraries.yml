@@ -2,6 +2,7 @@ global-styling:
   version: VERSION
   css:
     component:
+      fontawesome/css/fontawesome-all.min.css: {}
       css/custom.css: {}
       css/swiper.css: {}
 
