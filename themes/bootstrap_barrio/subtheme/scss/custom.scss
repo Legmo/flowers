@@ -2455,6 +2455,14 @@ body.page-node-2 {
         //display: inline-block;
         display: none;
     }
+    .pic-facade {
+        background: url(../img/shop-facade.jpg) no-repeat left center ;
+        background-size: contain;
+        min-height: 240px;
+    }
+    #contact-map-gis {
+        margin-top: 50px;
+    }
     #contact-map-pic {
         margin-top: 30px;
         background: url("../img/map.jpg") no-repeat top center;
