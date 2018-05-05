@@ -91,7 +91,7 @@
         //Colorbox. Формируем ссылку на основное изображение
         function colorboxLinksAddMain() {
             var atrHref = $('.slider.thumbs-container .slide-thumbs.active img').attr('src');
-            console.log(atrHref);
+            //console.log(atrHref);
             $(slideFirst).prepend('<a class="colorbox gallery overflow-link" href=""></a>');
             $(slideFirst).find('a.overflow-link').attr('href', atrHref);
             //console.log('Wow!')
@@ -130,7 +130,6 @@
                 $(slideFirst).find('img').attr('src', atrSrc);
 
                 //Colorbox. При клике по превью - меняем ссылку на Colorbox главной картинки
-                $(slideFirst).find('a.colorbox.overflow-link').attr('href', atrSrc);
                 colorboxLinksRemove();
                 colorboxLinksAddMain();
                 colorboxLinksAdd();
