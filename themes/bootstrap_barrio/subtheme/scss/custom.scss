@@ -252,6 +252,9 @@ ul.pagination {
         }
     }
 }
+#contact-map-gis iframe {
+    width: 100%;
+}
 
 //Крупные блоки
 .container-wrap {
@@ -2451,9 +2454,6 @@ body.page-node-2 {
         text-align: right;
         //display: inline-block;
         display: none;
-    }
-    #contact-map-gis iframe {
-        width: 100%;
     }
     #contact-map-pic {
         margin-top: 30px;
