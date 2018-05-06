@@ -219,18 +219,29 @@
         var paymentContent = $('#edit-order-payment-method--wrapper .fieldset-wrapper')
         $(paymentContent).once('Hide').hide();
 
-            $('#edit-order-payment-method--wrapper legend').once('ShowHide').click(function(){
-                if ($(paymentContent).css('display') == 'none') {
-                    //console.log($(paymentContent).css('display'));
-                    //console.log('show');
-                    $(paymentContent).show();
+        $('#edit-order-payment-method--wrapper legend').once('ShowHide').click(function(){
+            if ($(paymentContent).css('display') == 'none') {
+              $(paymentContent).slideDown("slow");
+              console.log('Show!');
+            }
+            else {
+              $(paymentContent).slideUp("slow");
+              console.log('Hide!');
+            }
+        });
+
+        //Webform - click on description of radio-button/chekbox
+        $('#paymentModal form .js-form-item .description').once().on('click', function(event) {
+            if (($(this).parent('.js-form-type-checkbox')) || ($(this).parent('.js-form-type-radio'))) {
+                var inputElement = $(this).parent('.js-form-item').find('input');
+
+                if ($(inputElement).prop("checked")) {
+                    $(inputElement).prop('checked', false);
+                } else {
+                    $(inputElement).prop('checked', true);
                 }
-                else {
-                    //console.log($(paymentContent).css('display'));
-                    //console.log('hide');
-                    $(paymentContent).hide();
-                }
-            });
+            }
+        });
 
         //Webform - add product name & price to pop-up window
         $('body.node--type-product-bouquet a.btn.payment').click(function(event){ //todo - разные типы нод

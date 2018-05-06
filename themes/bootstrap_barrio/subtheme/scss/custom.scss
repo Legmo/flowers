@@ -1323,6 +1323,108 @@ body.layout-sidebar-first {
             }
         }
     }
+
+    @media screen and (max-width: 575.99px) {
+      .modal-dialog {
+        .modal-header h5.modal-title {
+          padding-bottom: 0;
+          .product-name {
+            display: block;
+          }
+          .product-price {
+            display: block;
+            text-align: center;
+            margin: 10px 0 5px;
+          }
+        }
+        .modal-body .content form {
+          & > fieldset {
+            margin-bottom: 30px;
+            label {
+              width: 100%;
+              text-align: left;
+              margin-bottom: 5px;
+              &.js-form-required::after {
+                display: inline-block;
+                padding-left: 5px;
+              }
+            }
+            input.form-text,
+            input.form-tel,
+            input.form-number,
+            .form-type-textfield,
+            .form-textarea-wrapper,
+            #edit-order-date-time {
+              width: 100%;
+            }
+            small,
+            .description {
+              padding: 5px 0 0 0;
+              line-height: 1.1;
+            }
+            .js-form-item {
+              margin-bottom: 0;
+            }
+
+          }
+
+          .js-form-item.js-form-type-checkbox,
+          .js-webform-radios .js-form-item {
+            overflow: hidden;
+            margin-bottom: 30px;
+            & > label,
+            & > label.form-check-label {
+              width: 100%;
+              margin-bottom: 5px;
+              text-align: left;
+              padding: 0;
+              input.form-checkbox,
+              input.form-radio {
+                float: left;
+                margin: 4px 7px 0 0;
+                position: relative;
+                top: 0
+              }
+              input.form-radio {
+                margin: 1px 0 0 0;
+              }
+              label,
+              label.option {
+                //float: ;
+                text-align: left;
+                padding: 0 10px 0 0;
+                margin: 0;
+              }
+            }
+            small,
+            .description {
+              display: block;
+              width: 100%;
+              clear: both;
+              padding: 0 0 0 20px;
+              line-height: 1.1;
+              text-align: left;
+            }
+          }
+
+          #edit-order-payment-method--wrapper {
+            legend {
+              padding: 0;
+              text-align: center;
+            }
+            .js-form-item {
+              margin-bottom: 10px;
+            }
+          }
+          button.webform-button--submit {
+            display: block;
+            margin: 0 auto;
+          }
+
+        }
+      }
+    }
+
 }
 
 //Страницы - Главная
